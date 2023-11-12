@@ -1,0 +1,25 @@
+.header-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 80px;
+}
+.header-title {
+  color: #495c45;
+  font-weight: bold;
+  font-size: 20px;
+}
+.header-menu {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+}
+.loginbtn {
+  background-color: #495c45;
+  border-radius: 5px;
+  color: white;
+  width: 80px;
+  height: 35px;
+  border: none;
+}
