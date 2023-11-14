@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Body from "../components/Body";
 
 const Search = () => {
   return (
-    <div>Search</div>
-  )
-}
+    <div>
+      <div className="img"></div>
+      <Body/>
+      <div>Search</div>
+    </div>
+  );
+};
 
-export default Search
+export default Search;

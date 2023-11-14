@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const FuneralService = () => {
   return (
-    <div>FuneralService</div>
-  )
-}
+    <div>
+    
+      <div>FuneralService</div>
+    </div>
+  );
+};
 
-export default FuneralService
+export default FuneralService;

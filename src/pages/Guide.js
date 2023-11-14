@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Body from "../components/Body";
 
 const Guide = () => {
   return (
-    <div>Guide</div>
-  )
-}
+    <div>
+      <div className="img"></div>
+      <Body/>
+      <div>Guide</div>
+    </div>
+  );
+};
 
-export default Guide
+export default Guide;
