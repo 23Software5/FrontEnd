@@ -25,9 +25,9 @@
 }
 
 .loginbtn {
-  background-color: #495c45;
-  border-radius: 5px;
-  color: white;
+  
+  color: white;background-color: #495c45;
+  border-radius: 10px;
   width: 80px;
   height: 35px;
   margin-left: 10px;

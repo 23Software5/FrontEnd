@@ -1,0 +1,53 @@
+.title {
+  color: #495c45;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+.options-container {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+.option-box {
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 180px;
+  text-align: center;
+  font-weight: bold;
+  height: 200px;
+  background-color: #a3ada1;
+  color: #000;
+}
+
+.option-box p {
+  margin: 0;
+}
+
+.option-box.selected {
+  background-color: #495c45;
+  color: #fff;
+}
+img {
+  width: 100%;
+  height: 170px;
+  margin-top: 5px;
+  object-fit: cover;
+}
+.searchbtn {
+  color: white;
+  background-color: #495c45;
+  border-radius: 10px;
+  width: 80px;
+  height: 35px;
+  margin-left: 10px;
+  font-weight: bold;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+}
