@@ -49,6 +49,7 @@ img {
   justify-content: center;
   align-items: center;
   margin: 0 auto; 
+  margin-bottom: 20px;
 }
 .date-picker-container{
 background-color: #a3ada1;
