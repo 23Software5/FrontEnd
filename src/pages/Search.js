@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import Body from "../components/Body";
 import "../styles/Search.css";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+
+
 
 const Search = () => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
-
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
   return (
     <div>
       <div className="img"></div>
@@ -62,6 +69,15 @@ const Search = () => {
         </div>
       </div>
       <div className="title">날짜와 지역을 선택해 주세요.</div>
+    
+      <div className="date-picker-container">
+      <Calendar
+          onChange={handleDateChange}
+          value={selectedDate}
+          className="calendar"
+        />
+      </div>
+    
       <button className="searchbtn">검색하기</button>
 
       

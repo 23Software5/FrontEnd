@@ -43,11 +43,20 @@ img {
   border-radius: 10px;
   width: 80px;
   height: 35px;
-  margin-left: 10px;
   font-weight: bold;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto; 
+}
+.date-picker-container{
+background-color: #a3ada1;
+margin: 12px 30px 40px 30px;
+width: 300px;
+padding: 10px;
+border-radius: 10px;
+}
+.calendar{
+border-radius: 10px;
 }
