@@ -1,12 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Body from "../components/Body";
+import "../styles/Review.css";
 
 const Review = () => {
   return (
     <div>
       <div className="img"></div>
-      <Body/>
-      <div>Review</div>
+      <Body />
+      
+      <div className="review-container">
+      <Link to="/review-board">
+          <button className="review-btn">후기 더보기 ></button>
+      </Link>
+      
+        <div className="reviewBox">
+          <p>김OO님 | 2023년 11월 14일</p>
+          <p>우리 애기 마지막 가는 길 잘 보내주신 거 같아 정말 감사합니다</p>
+        </div>
+
+        <div className="reviewBox">
+          <p>이OO님 | 2023년 11월 2일</p>
+          <p>
+            덕컥 아이가 먼저 가버린 게 겁이 나 직접 하지 못했는데 이렇게
+            마지막까지 잘 보내주시고 감사하네요..
+          </p>
+        </div>
+
+        <div className="reviewBox">
+          <p>김OO님 | 2023년 11월 18일</p>
+          <p>
+            장례가 처음이라 어안이 벙벙했는데 차분히 상담 진행해 주셔서
+            감사해요!
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
