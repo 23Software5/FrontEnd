@@ -1,0 +1,12 @@
+.startpage-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.startpage-btn{
+width: 200px;
+height:40px;
+font-size: 20px;
+cursor: pointer;
+}

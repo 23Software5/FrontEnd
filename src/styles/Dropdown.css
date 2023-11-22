@@ -23,11 +23,12 @@
 
 .dropdown li {
   /* margin-bottom: 8px; */
-  margin: 8px 0;
+  margin: 8px 10px;
   cursor: pointer;  
+  font-size:15px;
 
 }
 .drop-menu{
   text-decoration: none;
-  color: #000
+  color: #000;
 }

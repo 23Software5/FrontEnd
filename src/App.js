@@ -1,5 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import FuneralService from "./pages/FuneralService";
@@ -9,8 +14,15 @@ import Search from "./pages/Search";
 import Instructor from "./pages/Instructor";
 import Guide from "./pages/Guide";
 import Review from "./pages/Review";
+import LoginPage from "./components/LoginPage";
+import StartPage from "./components/StartPage";
+import SignupPage from "./components/SignupPage";
+import SignupSuccessPage from "./components/SignupSuccessPage";
 
 function App() {
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false);
+
   return (
     <Router>
       <div className="App">
@@ -18,6 +30,29 @@ function App() {
         <Routes>
           <Route
             path="/"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/start" />
+              ) : (
+                <LoginPage setLoggedIn={setLoggedIn} />
+              )
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              signupSuccess ? (
+                <Navigate to="/signup-success" />
+              ) : (
+                <SignupPage setSignupSuccess={setSignupSuccess} />
+              )
+            }
+          />
+          <Route path="/signup-success" element={<SignupSuccessPage />} />
+
+          <Route path="/start" element={<StartPage />} />
+          <Route
+            path="/main"
             element={
               <>
                 <div className="img"></div>
