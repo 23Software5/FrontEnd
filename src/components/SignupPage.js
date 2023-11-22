@@ -20,16 +20,13 @@ const SignupPage = ({ setSignupSuccess }) => {
 
   const handleSignup = () => {
     if (isFormValid()) {
-      // Perform signup logic
       setSignupSuccess(true);
     } else {
-      // Show an error message or handle invalid form submission
-      alert("Please fill in all fields with valid information.");
+      alert("모든 항목을 입력해 주세요.");
     }
   };
 
   const formatPhoneNumber = (input) => {
-    // Format phone number as 000-0000-0000
     const cleaned = input.replace(/\D/g, "");
     const match = cleaned.match(/^(\d{3})(\d{4})(\d{4})$/);
     if (match) {

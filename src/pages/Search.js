@@ -49,7 +49,7 @@ const Search = () => {
       <div className="title">화장 후, 희망하는 안치 방법을 선택해 주세요.</div>
       <div className="options-container">
         <div
-          className={`option-box ${
+          className={`option-box1 ${
             selectedOption === "납골당/봉인당" ? "selected" : ""
           }`}
           onClick={() => handleOptionClick("납골당/봉인당")}
@@ -64,7 +64,7 @@ const Search = () => {
         </div>
 
         <div
-          className={`option-box ${
+          className={`option-box1 ${
             selectedOption === "수목장" ? "selected" : ""
           }`}
           onClick={() => handleOptionClick("수목장")}
@@ -78,7 +78,7 @@ const Search = () => {
         </div>
 
         <div
-          className={`option-box ${
+          className={`option-box1 ${
             selectedOption === "산골" ? "selected" : ""
           }`}
           onClick={() => handleOptionClick("산골")}
@@ -92,7 +92,7 @@ const Search = () => {
         </div>
 
         <div
-          className={`option-box ${
+          className={`option-box1 ${
             selectedOption === "스톤 제작" ? "selected" : ""
           }`}
           onClick={() => handleOptionClick("스톤 제작")}
@@ -107,83 +107,83 @@ const Search = () => {
         </div>
       </div>
       <div className="title">날짜와 지역을 선택해 주세요.</div>
-      <div className="search-container">
-        <div className="left-container">
-          <div className="date-picker-container">
+      <div className="search-container1">
+        <div className="left-container1">
+          <div className="date-picker-container1">
             <Calendar
               onChange={handleDateChange}
               value={selectedDate}
-              className="calendar"
+              className="calendar1"
             />
           </div>
         </div>
 
-        <div className="right-container">
-    <div className="dropdown-container1">
-      <label htmlFor="cityDropdown">시 선택</label>
-      <select
-        id="cityDropdown"
-        className="dropdown1"
-        value={selectedCity}
-        onChange={(e) => handleCityChange(e.target.value)}
-      >
-        <option value="" disabled>
-          OO시
-        </option>
-        {cities.map((city) => (
-          <option key={city} value={city}>
-            {city}
-          </option>
-        ))}
-      </select>
-    </div>
-
-    {selectedCity && (
-      <div className="dropdown-container1">
-        <label htmlFor="districtDropdown">구 선택</label>
-        <select
-          id="districtDropdown"
-          className="dropdown1"
-          value={selectedDistrict}
-          onChange={(e) => handleDistrictChange(e.target.value)}
-          disabled={!selectedCity}
-        >
-          <option value="" disabled>
-            OO구
-          </option>
-          {districtsByCity[selectedCity]?.map((district) => (
-            <option key={district} value={district}>
-              {district}
-            </option>
-          ))}
-        </select>
-      </div>
-    )}
-
-    {selectedDistrict && (
-      <div className="dropdown-container1">
-        <label htmlFor="neighborhoodDropdown">동 선택</label>
-        <select
-          id="neighborhoodDropdown"
-          className="dropdown1"
-          value={selectedNeighborhood}
-          onChange={(e) => handleNeighborhoodChange(e.target.value)}
-          disabled={!selectedDistrict}
-        >
-          <option value="" disabled>
-            OO동
-          </option>
-          {neighborhoodsByDistrict[selectedDistrict]?.map(
-            (neighborhood) => (
-              <option key={neighborhood} value={neighborhood}>
-                {neighborhood}
+        <div className="right-container1">
+          <div className="dropdown-container1">
+            <label htmlFor="cityDropdown">시 선택</label>
+            <select
+              id="cityDropdown"
+              className="dropdown1"
+              value={selectedCity}
+              onChange={(e) => handleCityChange(e.target.value)}
+            >
+              <option value="" disabled>
+                OO시
               </option>
-            )
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {selectedCity && (
+            <div className="dropdown-container1">
+              <label htmlFor="districtDropdown">구 선택</label>
+              <select
+                id="districtDropdown"
+                className="dropdown1"
+                value={selectedDistrict}
+                onChange={(e) => handleDistrictChange(e.target.value)}
+                disabled={!selectedCity}
+              >
+                <option value="" disabled>
+                  OO구
+                </option>
+                {districtsByCity[selectedCity]?.map((district) => (
+                  <option key={district} value={district}>
+                    {district}
+                  </option>
+                ))}
+              </select>
+            </div>
           )}
-        </select>
-      </div>
-    )}
-  </div>
+
+          {selectedDistrict && (
+            <div className="dropdown-container1">
+              <label htmlFor="neighborhoodDropdown">동 선택</label>
+              <select
+                id="neighborhoodDropdown"
+                className="dropdown1"
+                value={selectedNeighborhood}
+                onChange={(e) => handleNeighborhoodChange(e.target.value)}
+                disabled={!selectedDistrict}
+              >
+                <option value="" disabled>
+                  OO동
+                </option>
+                {neighborhoodsByDistrict[selectedDistrict]?.map(
+                  (neighborhood) => (
+                    <option key={neighborhood} value={neighborhood}>
+                      {neighborhood}
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
+          )}
+        </div>
       </div>
       <button className="searchbtn">검색하기</button>
     </div>
