@@ -1,11 +1,42 @@
-import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/SignupPage.css";
 import LogoImage from "../assets/logo.jpg";
+
 const SignupPage = ({ setSignupSuccess }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  const isEmailValid = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const isFormValid = () => {
+    return name.trim() !== "" && email.trim() !== "" && password.trim() !== "" && phoneNumber.trim() !== "" && isEmailValid();
+  };
+
   const handleSignup = () => {
-    // 회원가입 처리 로직
-    setSignupSuccess(true);
+    if (isFormValid()) {
+      // Perform signup logic
+      setSignupSuccess(true);
+    } else {
+      // Show an error message or handle invalid form submission
+      alert("Please fill in all fields with valid information.");
+    }
+  };
+
+  const formatPhoneNumber = (input) => {
+    // Format phone number as 000-0000-0000
+    const cleaned = input.replace(/\D/g, "");
+    const match = cleaned.match(/^(\d{3})(\d{4})(\d{4})$/);
+    if (match) {
+      setPhoneNumber(`${match[1]} - ${match[2]} - ${match[3]}`);
+    } else {
+      setPhoneNumber(input);
+    }
   };
 
   return (
@@ -14,20 +45,22 @@ const SignupPage = ({ setSignupSuccess }) => {
         <div className="login-title">회원가입</div>
         <div className="signup-box">
           <label>
-            이름 <input type="text" />
+            이름 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
           </label>
           <label>
-            이메일 <input type="text" />
+            이메일 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
           <label>
-            비밀번호 <input type="password" />
+            비밀번호 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </label>
           <label>
             전화번호
-            <input type="text" />
+            <input type="text" value={phoneNumber} onChange={(e) => formatPhoneNumber(e.target.value)} />
           </label>
         </div>
-        <button onClick={handleSignup}>회원가입</button>
+        <button onClick={handleSignup} disabled={!isFormValid()}>
+          회원가입
+        </button>
 
         <p>
           이미 회원이신가요? <Link to="/">로그인하기</Link>
