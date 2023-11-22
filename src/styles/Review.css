@@ -8,13 +8,18 @@
 .review-btn {
   margin-left: 600px;
   margin-bottom: 20px;
-
+  color: black;
   border: none;
+  width: 100px;
   background-color: transparent;
   cursor: pointer;
   font-weight: bold;
 }
-
+.review-p {
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
 .reviewBox {
   border: 1px solid #ccc;
   padding: 10px;

@@ -1,7 +1,10 @@
 .dropdown-container {
   position: relative;
 }
-
+.drop-menu{
+  text-decoration: none;
+  color: black;
+}
 .dropdown {
   position: absolute;
   top: 100%;
