@@ -10,6 +10,7 @@ const Review = () => {
       <Body />
       
       <div className="review-container">
+
       <Link to="/review-board">
           <button className="review-btn">후기 더보기 ></button>
       </Link>
