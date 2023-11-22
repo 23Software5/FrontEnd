@@ -27,20 +27,20 @@
   width: calc(33.33% - 20px);
   margin-top: 10px;
 }
-p{
+.guide-p {
   font-weight: bold;
   margin-top: 0px;
   font-size: 14px;
+  color: black;
 }
-img{
-width: 250px;
-height: 150px;
-border-radius: 10px;
+.img1 {
+  width: 250px;
+  height: 150px;
+  border-radius: 10px;
 }
 .arrow {
-margin-bottom: 20px;
+  margin-bottom: 20px;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 15px solid white; 
-  
+  border-left: 15px solid white;
 }
