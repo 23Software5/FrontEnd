@@ -5,8 +5,10 @@ const Instructor = () => {
   return (
     <div>
       <div className="img"></div>
-      <Body/>
-      <div>Instructor</div>
+      <Body />
+      <div>
+        <div>아 헷갈리네</div>
+      </div>
     </div>
   );
 };
