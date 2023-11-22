@@ -59,6 +59,7 @@ const Search = () => {
           <p>납골당/봉인당</p>
           <img
             className="search-img"
+            className="search-img"
             src="https://th.bing.com/th/id/R.2421a92909471648bedcf53712b26e15?rik=Ek5ELPMhM2MyCw&riu=http%3a%2f%2fwww.osungfuneral.co.kr%2ffiles%2fattach%2fimages%2f215%2f070%2f015%2fce71f83e491a6c84678e64a52b9cefee.jpg&ehk=5EceWNKc3bug5MDNcZLxDdTj3venfiyYnhPa6F%2fuEKU%3d&risl=&pid=ImgRaw&r=0"
             alt="search1"
           />
