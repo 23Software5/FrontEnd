@@ -40,7 +40,7 @@ input {
   background-color: #a3ada1;
 }
 
-button {
+.signuppage-btn {
   font-weight: bold;
   color: white;
   background-color: #495c45;

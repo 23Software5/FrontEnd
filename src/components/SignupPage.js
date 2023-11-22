@@ -55,7 +55,7 @@ const SignupPage = ({ setSignupSuccess }) => {
             <input type="text" value={phoneNumber} onChange={(e) => formatPhoneNumber(e.target.value)} />
           </label>
         </div>
-        <button onClick={handleSignup} disabled={!isFormValid()}>
+        <button className="signuppage-btn" onClick={handleSignup} disabled={!isFormValid()}>
           회원가입
         </button>
 
