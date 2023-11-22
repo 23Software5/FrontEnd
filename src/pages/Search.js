@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Body from "../components/Body";
-import "../styles/Search.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+
+import "../styles/Search.css";
 
 const Search = () => {
   const [selectedOption, setSelectedOption] = useState(null);
