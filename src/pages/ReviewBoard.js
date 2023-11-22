@@ -23,12 +23,13 @@ const ReviewBoard = () => {
       content: "서비스가 훌륭합니다!",
     },
   ]);
+  const [filteredReviews, setFilteredReviews] = useState(reviews);
 
   const handleSearch = () => {
-    const filteredReviews = reviews.filter((review) =>
-      review.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = reviews.filter((review) =>
+      review.funeralHome.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setReviews(filteredReviews);
+    setFilteredReviews(filtered);
   };
 
   return (
@@ -47,7 +48,7 @@ const ReviewBoard = () => {
         </button>
       </div>
       <div className="review-list">
-        {reviews.map((review, index) => (
+        {filteredReviews.map((review, index) => (
           <div key={index} className="review-box">
             <div className="review-header">
               <div>
