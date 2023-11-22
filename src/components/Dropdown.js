@@ -22,6 +22,7 @@ const Dropdown = ({ isOpen }) => {
         <Link to="/review" className="drop-menu">
           <li>후기</li>
         </Link>
+        
       </ul>
     </div>
   );
