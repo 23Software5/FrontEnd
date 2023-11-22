@@ -1,0 +1,55 @@
+.header-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 50px;
+  /* width: 100%; */
+}
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header-left img {
+  width: 50px; 
+  height: auto;
+  margin-right: 5px; 
+}
+.header-title {
+  color: #495c45;
+  font-weight: bold;
+  font-size: 20px;
+}
+.header-menu {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+
+}
+.menu-text{
+  cursor: pointer;
+  margin-top: 60px;
+  position: relative;
+}
+.menu-link {
+  color: #000;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.menu-mypage{
+  color: #000;
+  text-decoration: none;
+  margin: 0 20px;
+}
+.loginbtn {
+  font-weight: bold;
+  color: white;
+  background-color: #495c45;
+  border-radius: 10px;
+  width: 80px;
+  height: 35px;
+  border: none;
+}
+li {
+  list-style: none;
+}

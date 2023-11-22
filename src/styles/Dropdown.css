@@ -11,17 +11,38 @@
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
+<<<<<<< HEAD
+=======
+  height: auto;
+>>>>>>> jisoo
 }
 
 .dropdown ul {
   margin: 0;
+<<<<<<< HEAD
   padding: 8px;
+=======
+  padding: 0;
+>>>>>>> jisoo
   list-style: none;
 
 }
 
 .dropdown li {
+<<<<<<< HEAD
   margin: 8px 0;
   cursor: pointer;  
 
 }
+=======
+  /* margin-bottom: 8px; */
+  margin: 8px 10px;
+  cursor: pointer;  
+  font-size:15px;
+
+}
+.drop-menu{
+  text-decoration: none;
+  color: #000;
+}
+>>>>>>> jisoo

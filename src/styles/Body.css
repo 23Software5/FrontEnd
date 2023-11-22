@@ -1,0 +1,31 @@
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.body-btn{
+  width: 160px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 10px;
+  border: solid 2px #495c45;
+  font-size: 14px;
+  font-weight: bold;
+  color:#495c45;
+  background-color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-btn:hover {
+  background-color: #495c45;
+  color: white;
+}
+
+.body-btn:active {
+  background-color: #495c45;
+  color: white;
+}
