@@ -119,11 +119,11 @@ const Search = () => {
         </div>
 
         <div className="right-container">
-    <div className="dropdown-container">
+    <div className="dropdown-container1">
       <label htmlFor="cityDropdown">시 선택</label>
       <select
         id="cityDropdown"
-        className="dropdown"
+        className="dropdown1"
         value={selectedCity}
         onChange={(e) => handleCityChange(e.target.value)}
       >
@@ -139,11 +139,11 @@ const Search = () => {
     </div>
 
     {selectedCity && (
-      <div className="dropdown-container">
+      <div className="dropdown-container1">
         <label htmlFor="districtDropdown">구 선택</label>
         <select
           id="districtDropdown"
-          className="dropdown"
+          className="dropdown1"
           value={selectedDistrict}
           onChange={(e) => handleDistrictChange(e.target.value)}
           disabled={!selectedCity}
@@ -161,11 +161,11 @@ const Search = () => {
     )}
 
     {selectedDistrict && (
-      <div className="dropdown-container">
+      <div className="dropdown-container1">
         <label htmlFor="neighborhoodDropdown">동 선택</label>
         <select
           id="neighborhoodDropdown"
-          className="dropdown"
+          className="dropdown1"
           value={selectedNeighborhood}
           onChange={(e) => handleNeighborhoodChange(e.target.value)}
           disabled={!selectedDistrict}
