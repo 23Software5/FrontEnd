@@ -27,7 +27,7 @@
   width: calc(33.33% - 20px);
   margin-top: 10px;
 }
-p {
+.guide-p {
   font-weight: bold;
   margin-top: 0px;
   font-size: 14px;
