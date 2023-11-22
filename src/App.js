@@ -18,6 +18,8 @@ import LoginPage from "./components/LoginPage";
 import StartPage from "./components/StartPage";
 import SignupPage from "./components/SignupPage";
 import SignupSuccessPage from "./components/SignupSuccessPage";
+import FuneralList from "./pages/FuneralList";
+import ReviewBoard from "./pages/ReviewBoard";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -78,9 +80,12 @@ function App() {
           <Route path="/funeral-service" element={<FuneralService />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/funeral-list" element={<FuneralList/>}/>
+
           <Route path="/instructor" element={<Instructor />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/review" element={<Review />} />
+          <Route path="/review-board" element={<ReviewBoard/>}/>
         </Routes>
       </div>
     </Router>
