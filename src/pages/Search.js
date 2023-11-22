@@ -191,7 +191,7 @@ const Search = () => {
           )}
         </div>
       </div>
-      <button className="searchbtn">검색하기</button>
+      <button className="findfuneral-btn">검색하기</button>
     </div>
   );
 };
