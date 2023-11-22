@@ -15,8 +15,9 @@ const Body = () => {
       </Link>
       <Link to="/review" className="body-btn">
         <div>장례식장 후기</div>
-      </Link>
+      </Link> 
     </div>
+    
   );
 };
 
