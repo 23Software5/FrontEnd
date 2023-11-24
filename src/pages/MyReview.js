@@ -11,6 +11,9 @@ const MyReview = () => {
     },
   ]);
 
+
+
+  
   const handleDeleteReview = (index) => {
     const updatedReviews = [...userReviews];
     updatedReviews.splice(index, 1);
