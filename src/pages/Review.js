@@ -8,16 +8,17 @@ const Review = () => {
     <div>
       <div className="img"></div>
       <Body />
-      
-      <div className="review-container">
 
-      <Link to="/review-board">
+      <div className="review-container">
+        <Link to="/review-board">
           <button className="review-btn">후기 더보기 ></button>
-      </Link>
-      
+        </Link>
+
         <div className="reviewBox">
           <p className="review-p">김OO님 | 2023년 11월 14일</p>
-          <p className="review-p">우리 애기 마지막 가는 길 잘 보내주신 거 같아 정말 감사합니다</p>
+          <p className="review-p">
+            우리 애기 마지막 가는 길 잘 보내주신 거 같아 정말 감사합니다
+          </p>
         </div>
 
         <div className="reviewBox">
