@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/FuneralList.css";
 import FuneralDetailList from "./FuneralDetailList";
 
-const FuneralList = () => {
+const FuneralList = ({ onSelectFuneralHome }) => {
   const [selectedFuneral, setSelectedFuneral] = useState(null);
 
   const funeralHomes = [
@@ -23,14 +23,16 @@ const FuneralList = () => {
     },
   ];
 
-  const handleFuneralClick = (index) => {
-    setSelectedFuneral(funeralHomes[index]);
+  const handleFuneralClick = (funeralHome) => {
+
+    setSelectedFuneral(funeralHome);
+    onSelectFuneralHome(funeralHome.name);
   };
 
   return (
     <div>
       {selectedFuneral ? (
-        <FuneralDetailList funeralHome={selectedFuneral} />
+        <FuneralDetailList funeralHome={selectedFuneral} selectedFuneralHome={selectedFuneral}/>
       ) : (
         <div>
           <div className="funeral-list-title">원하는 장례식장을 선택하세요</div>
@@ -39,7 +41,7 @@ const FuneralList = () => {
               <div
                 key={index}
                 className="funeral-box"
-                onClick={() => handleFuneralClick(index)}
+                onClick={() => handleFuneralClick(funeralHome)}
               >
                 <div className="funeral-box-header">
                   <div className="funeral-name">{funeralHome.name}</div>
