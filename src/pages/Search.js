@@ -46,7 +46,17 @@ const Search = () => {
 
   return (
     <div>
-      <div className="img"></div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span className="Search-imgcontenttitle">맟춤검색</span>
+          <br />
+          <br />
+          <span>
+            전문적인 맞춤 반려동물 장례 업체를 찾아 <br />
+            사랑하는 반려동물과의 소중한 순간을 추억하세요.
+          </span>
+        </div>
+      </div>
       <Body />
       <div className="title">화장 후, 희망하는 안치 방법을 선택해 주세요.</div>
       <div className="options-container">

@@ -6,12 +6,23 @@ import "../styles/Review.css";
 const Review = () => {
   return (
     <div>
-      <div className="img"></div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span className="Search-imgcontenttitle">장례식장 후기</span>
+          <br />
+          <br />
+          <span>
+            다양한 후기를 통해 장례식장의 서비스 품질과
+            <br />
+            지도사의 전문성, 전반적인 피드백을 얻어가세요.
+          </span>
+        </div>
+      </div>
       <Body />
 
       <div className="review-container">
         <Link to="/review-board">
-          <button className="review-btn">후기 더보기 ></button>
+          <button className="review-btn">후기 더보기 </button>
         </Link>
 
         <div className="reviewBox">

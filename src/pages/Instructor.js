@@ -5,7 +5,17 @@ import "../styles/Instructor.css";
 const Instructor = () => {
   return (
     <div>
-      <div className="img"></div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span className="Search-imgcontenttitle">장례지도사</span>
+          <br />
+          <br />
+          <span>
+            전문적인 반려동물 장례 지도사와 함께 <br />
+            사랑하는 반려동물과의 소중한 순간을 추억하세요.
+          </span>
+        </div>
+      </div>
       <Body />
       <div className="instructor-contain">
         <div className="instructor-col">

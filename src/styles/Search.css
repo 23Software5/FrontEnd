@@ -108,3 +108,17 @@
 label {
   font-size: small;
 }
+
+.Search-imgcontent {
+  padding-top: 70px;
+  padding-left: 200px;
+}
+
+.Search-imgcontent span {
+  color: #fff;
+}
+
+.Search-imgcontenttitle {
+  font-weight: bold;
+  font-size: 1.2em;
+}
