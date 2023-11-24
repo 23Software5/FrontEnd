@@ -1,0 +1,76 @@
+.instructor-contain {
+  display: flex;
+  justify-content: center;
+}
+
+.instrucor-picname {
+  display: flex;
+  flex-direction: column;
+}
+
+.instructor-box {
+  display: flex;
+  padding: 45px;
+}
+
+.instrucor-mainbox {
+  height: 240px;
+  width: 800px;
+  border: solid;
+  border-color: #adcaa8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.instrucor-mainbox2 {
+  height: 240px;
+  width: 800px;
+
+  background-color: #495c45;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.instrucor-mainbox2 span {
+  color: white;
+}
+
+.instrucor-mainbox4 {
+  height: 240px;
+  width: 800px;
+
+  background-color: #adcaa8;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.instructor-pic {
+  height: 139px;
+  width: 123px;
+}
+
+.instructor-profile {
+  display: flex;
+  flex-direction: column;
+  padding-left: 80px;
+}
+
+.instructor-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.instructor-name {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.instructro-jobn {
+  font-weight: bold;
+}
