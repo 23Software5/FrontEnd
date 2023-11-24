@@ -1,5 +1,4 @@
-body,
-html {
+body.startpage {
   margin: 0;
   padding: 0;
   overflow: hidden; /* 세로 스크롤을 없애기 위해 추가 */
