@@ -1,0 +1,43 @@
+.SignupSuccess-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.logo-container img {
+  width: 300px;
+  height: auto;
+}
+
+.SignupSuccess-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 100px;
+}
+
+.SignupSuccess-content p {
+  font-size: 0.9em;
+  padding-bottom: 50px;
+}
+
+.SignupSuccess-btn {
+  font-weight: bold;
+  color: white;
+  background-color: #495c45;
+  border-radius: 10px;
+  width: 80px;
+  height: 35px;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

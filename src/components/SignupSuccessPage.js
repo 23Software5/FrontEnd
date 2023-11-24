@@ -1,12 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LogoImage from "../assets/logo.jpg";
+import "../styles/SignupSuccessPage.css";
 
 const SignupSuccessPage = () => {
   return (
-    <div>
-      <h2>회원가입이 완료되었습니다</h2>
-      <p>이제 로그인 페이지에서 로그인할 수 있습니다.</p>
-      <Link to="/">로그인 페이지로 이동</Link>
+    <div className="SignupSuccess-container">
+      <div className="SignupSuccess-content">
+        <h1>회원가입이 완료되었습니다</h1>
+        <p>로그인 후 서비스를 이용해보세요.</p>
+        <Link to="/">
+          <button className="SignupSuccess-btn">로그인</button>
+        </Link>
+      </div>
+      <div className="logo-container">
+        <img src={LogoImage} alt="Logo" />
+      </div>
     </div>
   );
 };
