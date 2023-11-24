@@ -19,4 +19,5 @@ const FuneralDetailList = ({ funeralHome }) => {
   );
 };
 
+
 export default FuneralDetailList;
