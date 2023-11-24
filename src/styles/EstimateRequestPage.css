@@ -59,7 +59,7 @@ textarea {
   align-items: center;
 }
 
-.logo-image {
+.estimate-request-logo-image {
   width: 90%;
   height: 60%;
   margin-bottom: 20px;
@@ -74,7 +74,7 @@ label textarea {
   text-align: center;
   margin-bottom: 10px;
 }
-.submit-button {
+.estimate-request-submit-button {
   width: 150px;
   border-radius: 10px;
   background-color: #495c45;
@@ -82,4 +82,6 @@ label textarea {
   height: 35px;
   border: none;
   margin-top: 50px;
+  cursor: pointer;
+
 }
