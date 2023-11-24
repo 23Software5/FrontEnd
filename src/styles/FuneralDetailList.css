@@ -1,0 +1,51 @@
+.funeral-detail-container {
+  display: flex;
+  margin: 0 40px;
+  align-items: center;
+  height: 100vh;
+}
+
+.funeral-detail-container-left {
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  width: 40%;
+  height: 50%;
+  text-align: center;
+}
+
+.funeral-detail-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.funeral-detail-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.funeral-detail-location {
+  font-size: 13px;
+}
+
+.review-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.funeral-detail-button-container {
+  margin-top: 20px;
+  text-align: center;
+  border: none;
+}
+.funeral-detail-button {
+  background-color: #a3ada1;
+  border: none;
+  border-radius: 10px;
+  width: 90px;
+  height: 30px;
+  font-weight: bold;
+}
