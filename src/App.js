@@ -20,6 +20,9 @@ import SignupPage from "./components/SignupPage";
 import SignupSuccessPage from "./components/SignupSuccessPage";
 import FuneralList from "./pages/FuneralList";
 import ReviewBoard from "./pages/ReviewBoard";
+import MyReview from "./pages/MyReview";
+import MySearch from "./pages/MySearch";
+
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -86,6 +89,10 @@ function App() {
           <Route path="/guide" element={<Guide />} />
           <Route path="/review" element={<Review />} />
           <Route path="/review-board" element={<ReviewBoard/>}/>
+
+          <Route path="/myreview" element={<MyReview />} />
+          <Route path="/mysearch" element={<MySearch />} />
+
         </Routes>
       </div>
     </Router>
