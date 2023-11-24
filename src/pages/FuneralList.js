@@ -1,7 +1,7 @@
 // FuneralList.js
 import React, { useState } from "react";
 import "../styles/FuneralList.css";
-import FuneralDetailList from "./FuneralDetailList"; 
+import FuneralDetailList from "./FuneralDetailList";
 
 const FuneralList = () => {
   const [selectedFuneral, setSelectedFuneral] = useState(null);
@@ -46,7 +46,9 @@ const FuneralList = () => {
                   <div className="funeral-name">{funeralHome.name}</div>
                   <div className="funeral-location">{funeralHome.location}</div>
                 </div>
-                <div className="funeral-description">{funeralHome.description}</div>
+                <div className="funeral-description">
+                  {funeralHome.description}
+                </div>
               </div>
             ))}
           </div>
