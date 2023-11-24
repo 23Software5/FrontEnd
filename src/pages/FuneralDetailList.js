@@ -8,6 +8,7 @@ const FuneralDetailList = ({ funeralHome }) => {
         <div className="funeral-detail-name">{funeralHome.name}</div>
         <div className="funeral-detail-location">
           주소 : {funeralHome.location}
+          
         </div>
 
         <div className="funeral-detail-button-container">
