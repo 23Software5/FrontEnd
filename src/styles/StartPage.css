@@ -1,5 +1,4 @@
-body,
-html {
+body.startpage {
   margin: 0;
   padding: 0;
 }
