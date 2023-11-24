@@ -1,4 +1,3 @@
-// FuneralList.js
 import React, { useState } from "react";
 import "../styles/FuneralList.css";
 import FuneralDetailList from "./FuneralDetailList";

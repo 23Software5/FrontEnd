@@ -7,6 +7,14 @@ import logo from "../assets/logo.jpg";
 const Header = () => {
   const [view, setView] = useState(false);
 
+  const handleDropdownClick = () => {
+    setView(!view);
+  };
+
+  const handleMenuItemClick = () => {
+    setView(false);
+  };
+
   return (
     <div className="header-body">
       <div className="header-left">
@@ -17,11 +25,11 @@ const Header = () => {
         
       </div>
       <div className="header-menu">
-        <div className="dropdown-container">
-          <span className="menu-text" onClick={() => setView(!view)}>
+        <div className="dropdown-container" onClick={handleDropdownClick}>
+          <span className="menu-text" >
             장례서비스 {view ? "▲" : "▼"}
           </span>
-          <Dropdown isOpen={view} />
+          <Dropdown isOpen={view} onItemClick={handleMenuItemClick} />
         </div>
         <Link to="/mypage" className="menu-mypage">
           <div className="m">마이페이지</div>
