@@ -1,11 +1,25 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 세로 스크롤을 없애기 위해 추가 */
+}
+
 .startpage {
   height: 100vh;
-  background-color: #f0f0f0; 
-  padding-left: 20px; 
+  width: 100%;
+  background-image: url("../../public/img/startpageimgreal.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .startpage-title {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: bold;
+  padding-bottom: 40px;
 }
 
 .startpage-btn {
@@ -18,6 +32,13 @@
   background-color: #495c45;
   color: white;
   font-weight: bold;
-  
+}
 
+.startpage-left {
+  color: white;
+  padding-right: 750px;
+}
+
+.startpage-content {
+  padding-bottom: 50px;
 }

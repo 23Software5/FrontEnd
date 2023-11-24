@@ -12,13 +12,17 @@ const StartPage = () => {
   return (
     <div className="startpage">
       <div className="startpage-left">
-        <div className="startpage-title">맞춤 장례</div>
+        <div className="startpage-title">맞춤 장례 서비스, MURO</div>
         <div className="startpage-content">
-          맞춤형 검색으로 최적의 장례 업체를 찾아보세요 <br />
-          견적서를 요청하시면 소중한 아이를 위해 <br />
-          최선을 다하는 전문가분들과 연결될 것입니다.
+          MURO는 무지개 다리를 건너는 반려동물에게 <br />
+          따뜻한 이별을 선물하기 위해 노력합니다. <br />
           <br />
-          견적 결과는 마이페이지에서 확인하세요.
+          간편한 웹 예약과 맞춤 견적으로 쉽고 신속하게
+          <br /> 원하는 서비스를 찾을 수 있습니다.
+          <br />
+          <br />
+          반려동물과의 소중한 순간을 <br />
+          더욱 간직할 수 있는 MURO를 이용해보세요.
         </div>
       </div>
       <button className="startpage-btn" onClick={handleStart}>
