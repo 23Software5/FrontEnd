@@ -1,9 +1,16 @@
-.img{
-  background-color: bisque;
-  height: 243px;
+body.App {
+  margin: 0;
+  padding: 0;
 }
-.intro{
-font-weight: bold;
-text-align: center;
-margin: 30px 0;
+
+.img {
+  background-image: url(../public/img/picsmall.png);
+  height: 243px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.intro {
+  font-weight: bold;
+  text-align: center;
+  margin: 30px 0;
 }
