@@ -26,7 +26,9 @@ import MySearch from "./pages/MySearch";
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
+  const [selectedFuneralHome, setSelectedFuneralHome] = useState(""); // Add this state
 
+  
   return (
     <Router>
       <div className="App">
@@ -82,12 +84,12 @@ function App() {
           <Route path="/funeral-service" element={<FuneralService />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/funeral-list" element={<FuneralList />} />
+          <Route path="/funeral-list" element={<FuneralList  onSelectFuneralHome={setSelectedFuneralHome}/>} />
 
           <Route path="/instructor" element={<Instructor />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/review" element={<Review />} />
-          <Route path="/review-board" element={<ReviewBoard />} />
+          <Route path="/review-board" element={<ReviewBoard selectedFuneralHome={selectedFuneralHome} />} />
 
           <Route path="/myreview" element={<MyReview />} />
           <Route path="/mysearch" element={<MySearch />} />

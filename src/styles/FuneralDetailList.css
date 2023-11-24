@@ -49,3 +49,14 @@
   height: 30px;
   font-weight: bold;
 }
+
+
+.funeral-reviews-container-right {
+  height: 90%; 
+}
+
+.funeral-reviews-container-right-title {
+  margin-bottom: 50px;
+  text-align: center; 
+  font-size: 30px;
+}
