@@ -1,0 +1,81 @@
+.reviewboard-top {
+  background-color: #495c45;
+  height: 243px;
+  color: white;
+  font-weight: bold;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  padding-left:60px;
+}
+
+
+.review-board-top {
+  background-color: #495c45;
+  height: 243px;
+  color: white;
+  font-weight: bold;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+.reviewboard-search{
+background-color: white;
+border: 1px solid;
+height: 25px;
+border-radius: 10px;
+
+}
+.reviewboard-search-btn{
+margin-left:10px;
+background-color: #495c45;
+border:none;
+border-radius: 10px;
+height: 36px;
+width: 45px;
+color: white;
+}
+.search-bar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.review-box {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #495c45;
+  margin: 20px;
+  padding: 20px;
+  width: 700px;
+}
+
+.review-header {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+
+.funeral-home {
+  color: #495c45;
+  font-size: 14px;
+
+}
+
+.content {
+  margin-top: 10px;
+}

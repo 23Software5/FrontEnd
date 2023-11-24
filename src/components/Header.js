@@ -14,6 +14,7 @@ const Header = () => {
         <Link to="/" className="menu-link">
           <div className="header-title">MURO</div>
         </Link>
+        
       </div>
       <div className="header-menu">
         <div className="dropdown-container">
