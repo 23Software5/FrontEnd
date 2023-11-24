@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/FuneralDetailList.css";
 import ReviewBoard from "./ReviewBoard";
 
 const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
+  const handleApplyClick = () => {
+    onSelectFuneralHome(funeralHome.name);
+  };
+
   return (
     <div className="funeral-detail-container">
       <div className="funeral-detail-container-left">
@@ -12,12 +17,14 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
         </div>
 
         <div className="funeral-detail-button-container">
-          <button
-            className="funeral-detail-button"
-            onClick={() => onSelectFuneralHome(funeralHome.name)}
-          >
-            신청하기
-          </button>
+          <Link to="/estimate-request">
+            <button
+              className="funeral-detail-button"
+              onClick={handleApplyClick}
+            >
+              신청하기
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -27,8 +34,6 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
           <ReviewBoard selectedFuneralHome={funeralHome} />
         </div>
       )}
-
-      
     </div>
   );
 };
