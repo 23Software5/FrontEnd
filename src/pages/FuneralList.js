@@ -32,7 +32,7 @@ const FuneralList = ({ onSelectFuneralHome }) => {
   return (
     <div>
       {selectedFuneral ? (
-        <FuneralDetailList funeralHome={selectedFuneral} selectedFuneralHome={selectedFuneral}/>
+        <FuneralDetailList funeralHome={selectedFuneral} onSelectFuneralHome={onSelectFuneralHome}/>
       ) : (
         <div>
           <div className="funeral-list-title">원하는 장례식장을 선택하세요</div>
