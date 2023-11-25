@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+
+import * as api from "../Api"; // 추가: api.js 파일 불러오기
+
 import "../styles/ReviewBoard.css";
 
-const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar  }) => {
+const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [reviews, setReviews] = useState([
@@ -25,6 +28,20 @@ const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar  }) => {
     },
   ]);
   const [filteredReviews, setFilteredReviews] = useState(reviews);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        // getAllReviews 함수를 사용하여 후기를 가져옵니다.
+        const reviewsData = await api.getAllReviews();
+        setReviews(reviewsData);
+      } catch (error) {
+        console.error("후기를 불러오는 중 오류 발생:", error);
+      }
+    };
+
+    fetchReviews();
+  }, []);
 
   useEffect(() => {
     const filtered = selectedFuneralHome

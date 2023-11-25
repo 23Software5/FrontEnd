@@ -8,6 +8,9 @@ import {
 import Header from "./components/Header";
 import Body from "./components/Body";
 import FuneralService from "./pages/FuneralService";
+
+import * as api from "./Api"; // 추가: api.js 파일 불러오기
+
 import "./App.css";
 import Mypage from "./pages/Mypage";
 import Search from "./pages/Search";
@@ -30,10 +33,22 @@ function App() {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [selectedFuneralHome, setSelectedFuneralHome] = useState(""); // Add this state
 
+  // 추가: 로그아웃 처리 함수
+  const handleLogout = async () => {
+    try {
+      await api.logoutUser(); // api.js에 로그아웃을 처리하는 함수가 있어야 합니다.
+      setLoggedIn(false);
+    } catch (error) {
+      console.error("Error logging out:", error);
+      // 추가: 에러 처리 로직을 추가할 수 있습니다.
+    }
+  };
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header onLogout={handleLogout} />{" "}
+        {/* 수정: Header 컴포넌트에 로그아웃 함수 전달 */}
         <Routes>
           <Route
             path="/"
