@@ -18,7 +18,7 @@
   font-weight: 700;
 }
 
-.container {
+.my_search_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;

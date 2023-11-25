@@ -19,7 +19,7 @@ const MySearch = () => {
       <div className="my-search-top">내 견적 조회</div>
       <div className="my-search-middle">내 견적 조회하기</div>
 
-      <div className="container">
+      <div className="my_search_container">
         <div className="My_pet">
           <h4 style={{ fontSize: '20px' }}>반려 동물 정보</h4>
         </div>
