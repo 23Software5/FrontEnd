@@ -12,6 +12,7 @@ const Mypage = () => {
 
   return (
     <div>
+      
       <div className='my-page-top'>마이페이지</div>
       <div className='my-management'>회원정보관리</div>
 

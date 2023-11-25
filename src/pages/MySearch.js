@@ -16,13 +16,19 @@ const MySearch = () => {
 
   return (
     <div>
-      <div className="my-search-top">내 견적 조회</div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span style={{ fontSize: '40px', fontWeight: 'bold' }}>내 견적 조회하기</span>
+        </div>
+      </div>
       <div className="my-search-middle">내 견적 조회하기</div>
 
       <div className="my_search_container">
+
         <div className="My_pet">
-          <h4 style={{ fontSize: '20px' }}>반려 동물 정보</h4>
+          <h3 style={{ fontSize: '30px' }}>반려 동물 정보</h3>
         </div>
+        
         <div className="My_process" style={{ textAlign: 'center' }}>
           <h4>장례 진행 상황</h4>
           <div className="status-buttons">
@@ -52,7 +58,11 @@ const MySearch = () => {
             )}
           </div>
         </div>
+
+
         <div className="My_place">장소 정보</div>
+      
+      
       </div>
 
       {isReviewModalOpen && (
