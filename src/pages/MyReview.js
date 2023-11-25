@@ -22,7 +22,11 @@ const MyReview = () => {
 
   return (
     <div>
-      <div className="my-review-top">내가 쓴 글 조회</div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span style={{ fontSize: '40px', fontWeight: 'bold' }}>내가 쓴 글 확인하기</span>
+        </div>
+      </div>
       <div className="my-review-middle">내 후기 조회</div>
       <div className="review-list">
         {userReviews.map((review, index) => (
