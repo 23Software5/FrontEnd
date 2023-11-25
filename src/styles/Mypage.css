@@ -1,0 +1,60 @@
+.my-page-top {
+    height: 100px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my-page-top {
+    /* background-color: #495c45; */
+    height: 100px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my-management {
+    /* background-color: #495c45; */
+    height: 100px;
+
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.container {
+    /* background-color: #495c45; */
+    height: 100px;
+    /* color: white; */
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.container div {
+    display: center;
+    flex-direction: row; /* 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+
+}
+
