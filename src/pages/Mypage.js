@@ -49,6 +49,8 @@ const Mypage = () => {
     <div>
       <div className="my-page-top">마이페이지</div>
       <div className="my-management">회원정보관리</div>
+      <div className="my-page-top">마이페이지</div>
+      <div className="my-management">회원정보관리</div>
 
       <div className="my_container">
         <div className="my_table">
