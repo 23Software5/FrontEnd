@@ -1,0 +1,138 @@
+.my-page-top {
+    height: 100px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my-page-top {
+    /* background-color: #495c45; */
+    height: 100px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my-management {
+    /* background-color: #495c45; */
+    height: 80px;
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my_container {
+    /* background-color: #495c45; */
+    height: 100px;
+    /* color: white; */
+    display: center;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.my_table {
+    display: grid;
+    text-align: center; /* 텍스트 수평 가운데 정렬 */
+}
+
+.my_table table {
+    border: 1px solid #ddd; /* 테이블 전체 테두리 스타일 및 색상 지정 */
+    border-collapse: collapse; /* 테두리 겹치지 않게 설정 */
+    width: 100%; /* 테이블 폭을 100%로 설정 */
+}
+
+.my_table th {
+    color: #ddd;
+    background: #495c45;
+    border: 1px solid #ddd; /* 각 셀의 테두리 스타일 및 색상 지정 */
+    padding: 8px; /* 셀 안의 여백 설정 */
+}
+
+.my_table td {
+    border: 1px solid #ddd; /* 각 셀의 테두리 스타일 및 색상 지정 */
+    padding: 8px; /* 셀 안의 여백 설정 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+
+.my_container div {
+    display: center;
+    flex-direction: row; /* 가로로 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+
+
+    .my-review-btn {
+        background-color: white; /* 버튼 배경색 흰색으로 설정 */
+        color: #495c45; /* 글자색 지정 */
+        padding: 10px; /* 버튼 여백 설정 */
+        border: none; /* 테두리 없애기 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+        margin-right: 50px; /* 두 번째 버튼에 오른쪽 여백 추가 */
+    
+        /* 내가 쓴 글 글씨 스타일 */
+        background: linear-gradient(to bottom, white 50%, #495c45 50%); /* 흰색과 배경색으로 그라데이션 효과 설정 */
+        background-size: 100% 200%; /* 그라데이션 크기 설정 */
+        transition: background-position 0.5s; /* 마우스 오버 효과를 위한 전환 설정 */
+    
+        background-image: url('https://cdn.pixabay.com/photo/2016/11/23/18/14/fountain-pen-1854169_1280.jpg');
+        background-repeat: no-repeat;
+        background-position: center; /* 이미지를 가운데 정렬 */
+    }
+    
+    .my-review-btn:hover {
+        background-position: 0 100%; /* 마우스 오버 시 그라데이션 위치 조정 */
+    }
+    
+    .my-search-btn {
+        background-color: white; /* 버튼 배경색 흰색으로 설정 */
+        color: #495c45; /* 글자색 지정 */
+        padding: 10px; /* 버튼 여백 설정 */
+        border: none; /* 테두리 없애기 */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    
+        /* 내 견적 확인 글씨 스타일 */
+        background: linear-gradient(to bottom, white 50%, #495c45 50%); /* 흰색과 배경색으로 그라데이션 효과 설정 */
+        background-size: 100% 200%; /* 그라데이션 크기 설정 */
+        transition: background-position 0.5s; /* 마우스 오버 효과를 위한 전환 설정 */
+    
+        /* 이미지 추가 (웹 상의 이미지 URL을 직접 넣어주세요) */
+        background-image: url('https://cdn.pixabay.com/photo/2014/12/27/15/34/notebook-581128_1280.jpg');
+        background-repeat: no-repeat;
+        background-position: center; /* 이미지를 가운데 정렬 */
+    }
+    
+    .my-search-btn:hover {
+        background-position: 0 100%; /* 마우스 오버 시 그라데이션 위치 조정 */
+    }
+    
+    .my-review-btn-name, .my-search-btn-name {
+        font-weight: bold;
+        font-size: 20px;
+        background: rgba(255, 255, 255, 0.5); /* 투명도 있는 흰 배경 적용 */
+        color: #495c45; /* 글자색 그대로 유지 */
+        padding: 5px 10px; /* 글씨 주변 여백 추가 */
+    }
+    
+    
