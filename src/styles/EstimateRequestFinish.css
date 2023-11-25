@@ -1,0 +1,28 @@
+.estimate-finish-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 60px 100px;
+  border: 2px solid #495c45;
+  border-radius: 10px;
+}
+
+.logo-image {
+  margin-bottom: 20px;
+}
+
+.finish-message {
+  font-size: 24px;
+  font-weight: bold;
+}
+.estimate-finish-container-logo-image {
+  width: 50%;
+  height: 50%;
+}
+.estimate-finish-message {
+  font-weight: bold;
+  color: black;
+  font-size:35px;
+}

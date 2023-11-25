@@ -22,11 +22,13 @@ import FuneralList from "./pages/FuneralList";
 import ReviewBoard from "./pages/ReviewBoard";
 import MyReview from "./pages/MyReview";
 import MySearch from "./pages/MySearch";
-
+import FuneralDetailList from "./pages/FuneralDetailList";
+import EstimateRequestPage from "./pages/EstimateRequestPage";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
+  const [selectedFuneralHome, setSelectedFuneralHome] = useState(""); // Add this state
 
   return (
     <Router>
@@ -70,7 +72,7 @@ function App() {
                 <div className="intro">
                   '무로'는 무지개로드의 줄임말로
                   <br />
-                  마지막 길을 걷는 추억하자는 의미를 담고 있습니다.
+                  마지막 걷는 길을 추억하자는 의미를 담고 있습니다.
                 </div>
                 <div className="intro">
                   무로는 그동안 함께한 소중한 동행자에게
@@ -83,16 +85,23 @@ function App() {
           <Route path="/funeral-service" element={<FuneralService />} />
           <Route path="/mypage" element={<Mypage />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/funeral-list" element={<FuneralList/>}/>
-
+          <Route
+            path="/funeral-list"
+            element={
+              <FuneralList onSelectFuneralHome={setSelectedFuneralHome} />
+            }
+          />
+          <Route path="/estimate-request" element={<EstimateRequestPage />} />
           <Route path="/instructor" element={<Instructor />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/review" element={<Review />} />
-          <Route path="/review-board" element={<ReviewBoard/>}/>
+          <Route
+            path="/review-board"
+            element={<ReviewBoard selectedFuneralHome={selectedFuneralHome} />}
+          />
 
           <Route path="/myreview" element={<MyReview />} />
           <Route path="/mysearch" element={<MySearch />} />
-
         </Routes>
       </div>
     </Router>

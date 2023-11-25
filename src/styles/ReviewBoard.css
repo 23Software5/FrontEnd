@@ -8,7 +8,16 @@
   align-items: center;
   padding-left:60px;
 }
-
+.review-list-banner{
+  background-color: #495c45;
+  height: 243px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
 
 .review-board-top {
   background-color: #495c45;
@@ -24,6 +33,7 @@
 background-color: white;
 border: 1px solid;
 height: 25px;
+width: 250px;
 border-radius: 10px;
 
 }

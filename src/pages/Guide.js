@@ -5,7 +5,18 @@ import "../styles/Guide.css";
 const Guide = () => {
   return (
     <div>
-      <div className="img"></div>
+      <div className="img">
+        <div className="Search-imgcontent">
+          <span className="Search-imgcontenttitle">가이드북</span>
+          <br />
+          <br />
+          <span>
+            사랑하는 반려동물과의 소중한 순간을 추억하기 위해
+            <br />
+            가이드북을 활용해보세요
+          </span>
+        </div>
+      </div>
       <Body />
       <div className="title">장례 절차 가이드북</div>
 

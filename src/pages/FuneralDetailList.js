@@ -1,7 +1,14 @@
+// FuneralDetailList.js
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/FuneralDetailList.css";
+import ReviewBoard from "./ReviewBoard";
 
-const FuneralDetailList = ({ funeralHome }) => {
+const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
+  const handleApplyClick = () => {
+    onSelectFuneralHome(funeralHome.name);
+  };
+
   return (
     <div className="funeral-detail-container">
       <div className="funeral-detail-container-left">
@@ -11,13 +18,29 @@ const FuneralDetailList = ({ funeralHome }) => {
         </div>
 
         <div className="funeral-detail-button-container">
-          <button className="funeral-detail-button">신청하기</button>
+          <Link to="/estimate-request">
+            <button
+              className="funeral-detail-button"
+              onClick={handleApplyClick}
+            >
+              신청하기
+            </button>
+          </Link>
         </div>
       </div>
-      
+
+      {funeralHome && (
+        <div className="funeral-reviews-container-right">
+          <h3 className="funeral-reviews-container-right-title">후기</h3>
+          {/* Render ReviewBoard without banner and search bar */}
+          <ReviewBoard
+            selectedFuneralHome={funeralHome}
+            hideBannerAndSearchBar
+          />
+        </div>
+      )}
     </div>
   );
 };
-
 
 export default FuneralDetailList;

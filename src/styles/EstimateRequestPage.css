@@ -1,0 +1,100 @@
+.estimate-request-banner{
+background-color: #495c45;
+height: 243px;
+color: white;
+font-size: 35px;
+font-weight: bold;
+display: flex;
+align-items: center;
+padding-left: 50px;
+
+}
+
+.estimate-request-container {
+  display: flex;
+  border: 2px solid #495c45;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 60px 150px;
+}
+.estimate-request-title{
+  margin-bottom:50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.estimate-request-left {
+  flex: 1;
+  padding: 20px 0 20px 80px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  height: 20px;
+  width: 150px;
+  padding: 8px;
+  background-color: white;
+  border: 1px solid #495c45;
+}
+select {
+  margin: 15px 5px 15px 10px;
+  height: 30px;
+  border-radius: 10px;
+}
+textarea {
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+.date-input-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.estimate-request-right {
+  flex: 1;
+  padding: 20px 70px 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.estimate-request-logo-image {
+  width: 90%;
+  height: 60%;
+  margin-bottom: 20px;
+    align-self: center; 
+}
+
+label textarea {
+  width: 80%;
+  margin-top: 5px;
+}
+
+.special-notes-label {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.estimate-request-submit-button {
+  width: 150px;
+  border-radius: 10px;
+  background-color: #495c45;
+  color: white;
+  height: 35px;
+  border: none;
+  margin-top: 50px;
+  cursor: pointer;
+  align-self: center;
+
+}
