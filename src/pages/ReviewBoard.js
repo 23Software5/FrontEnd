@@ -11,7 +11,6 @@ const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar  }) => {
       funeralHome: "ABC 장례식장",
       content: "서비스가 훌륭합니다!",
     },
-    
     {
       name: "이OO",
       date: "2023-01-01",
