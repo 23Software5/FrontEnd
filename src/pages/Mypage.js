@@ -41,8 +41,14 @@ const Mypage = () => {
         <br/>
 
         <div>
-          
-        </div>
+          <button className='my-update-btn'>
+            <div className="my-update-btn-name">정보수정</div>
+          </button>
+
+          <button className='my-withdraw-btn'>
+            <div className="my-withdraw-btn-name">탈퇴하기</div>
+          </button>
+        </div><br/><br/><br/><br/>
 
         <div>
           <Link to="/myreview">
