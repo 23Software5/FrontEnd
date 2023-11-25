@@ -33,6 +33,7 @@ const EstimateRequestPage = () => {
 
   return (
     <div>
+      <div className="estimate-request-banner">견적 신청하기</div>
       {submitted ? (
         <EstimateRequestFinish />
       ) : (

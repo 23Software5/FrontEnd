@@ -1,3 +1,4 @@
+// FuneralDetailList.js
 import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/FuneralDetailList.css";
@@ -31,7 +32,11 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
       {funeralHome && (
         <div className="funeral-reviews-container-right">
           <h3 className="funeral-reviews-container-right-title">후기</h3>
-          <ReviewBoard selectedFuneralHome={funeralHome} />
+          {/* Render ReviewBoard without banner and search bar */}
+          <ReviewBoard
+            selectedFuneralHome={funeralHome}
+            hideBannerAndSearchBar
+          />
         </div>
       )}
     </div>
