@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import "../styles/SignupPage.css";
 import LogoImage from "../assets/logo.jpg";
 
+import * as api from "../Api"; // 추가: api.js 파일 불러오기
+
 const SignupPage = ({ setSignupSuccess }) => {
-  const [name, setName] = useState("");
+  const [nickname, setNickname] = useState(""); // 변경: name을 nickname으로 변경
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
 
   const isEmailValid = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,24 +16,37 @@ const SignupPage = ({ setSignupSuccess }) => {
   };
 
   const isFormValid = () => {
-    return name.trim() !== "" && email.trim() !== "" && password.trim() !== "" && phoneNumber.trim() !== "" && isEmailValid();
+    return (
+      nickname.trim() !== "" && // 변경: name을 nickname으로 변경
+      email.trim() !== "" &&
+      password.trim() !== "" &&
+      isEmailValid()
+    );
   };
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (isFormValid()) {
-      setSignupSuccess(true);
+      const userData = {
+        nickname, // 변경: name을 nickname으로 변경
+        email,
+        password,
+      };
+
+      try {
+        const response = await api.registerUser(userData);
+
+        // 성공적으로 가입한 경우
+        console.log("User registration successful:", response);
+
+        // 추가: 회원가입 성공 시 부모 컴포넌트의 상태 업데이트
+        setSignupSuccess(true);
+      } catch (error) {
+        // 가입 실패한 경우
+        console.error("Error registering user:", error);
+        alert("회원가입에 실패했습니다.");
+      }
     } else {
       alert("모든 항목을 입력해 주세요.");
-    }
-  };
-
-  const formatPhoneNumber = (input) => {
-    const cleaned = input.replace(/\D/g, "");
-    const match = cleaned.match(/^(\d{3})(\d{4})(\d{4})$/);
-    if (match) {
-      setPhoneNumber(`${match[1]} - ${match[2]} - ${match[3]}`);
-    } else {
-      setPhoneNumber(input);
     }
   };
 
@@ -42,20 +56,35 @@ const SignupPage = ({ setSignupSuccess }) => {
         <div className="login-title">회원가입</div>
         <div className="signup-box">
           <label>
-            이름 <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+            닉네임{" "}
+            <input
+              type="text"
+              value={nickname} // 변경: name을 nickname으로 변경
+              onChange={(e) => setNickname(e.target.value)} // 변경: name을 nickname으로 변경
+            />
           </label>
           <label>
-            이메일 <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+            이메일{" "}
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </label>
           <label>
-            비밀번호 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </label>
-          <label>
-            전화번호
-            <input type="text" value={phoneNumber} onChange={(e) => formatPhoneNumber(e.target.value)} />
+            비밀번호{" "}
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </label>
         </div>
-        <button className="signuppage-btn" onClick={handleSignup} disabled={!isFormValid()}>
+        <button
+          className="signuppage-btn"
+          onClick={handleSignup}
+          disabled={!isFormValid()}
+        >
           회원가입
         </button>
 
