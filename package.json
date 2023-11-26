@@ -23,7 +23,7 @@
     "web-vitals": "^3.5.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^1.0.10"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "browserslist": {
     "production": [

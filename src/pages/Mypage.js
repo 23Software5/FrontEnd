@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';  // axios 추가
+import axios from 'axios';  
 import "../styles/Mypage.css";
 import { Link } from "react-router-dom";
-import * as api from "../Api"; // 추가: api.js 파일 불러오기
+import * as api from "../Api"; 
 
 const Mypage = () => {
   // 기존의 더미데이터
