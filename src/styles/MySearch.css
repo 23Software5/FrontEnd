@@ -110,3 +110,32 @@
   border-radius: 5px;
   margin-top: 10px;
 }
+
+
+
+.review-modal .review-input {
+  margin-bottom: 20px;
+}
+
+.review-modal label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.review-modal input,
+.review-modal textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.review-modal button {
+  background-color: #495c45;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
