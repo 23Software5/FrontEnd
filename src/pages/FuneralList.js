@@ -1,30 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/FuneralList.css";
 import FuneralDetailList from "./FuneralDetailList";
+import { getAllFuneralHalls } from "../Api"; // Adjust the path based on your project structure
 
 const FuneralList = ({ onSelectFuneralHome }) => {
   const [selectedFuneral, setSelectedFuneral] = useState(null);
+  const [funeralHomes, setFuneralHomes] = useState([]);
 
-  const funeralHomes = [
-    {
-      name: "ABC 장례식장",
-      location: "서울시 강남구",
-      description: "품격 있는 장례식장입니다.",
-    },
-    {
-      name: "DEF 장례식장",
-      location: "서울시 종로구",
-      description: "고요하고 안정적인 분위기의 장례식장입니다.",
-    },
-    {
-      name: "GHI 장례식장",
-      location: "서울시 영등포구",
-      description: "따뜻한 분위기의 장례식장입니다.",
-    },
-  ];
+  useEffect(() => {
+    // Fetch funeral halls data when the component mounts
+    const fetchFuneralHalls = async () => {
+      try {
+        const hallsData = await getAllFuneralHalls();
+        setFuneralHomes(hallsData);
+      } catch (error) {
+        console.error("Error fetching funeral halls:", error);
+      }
+    };
+
+    fetchFuneralHalls();
+  }, []); // Empty dependency array ensures this effect runs once when the component mounts
 
   const handleFuneralClick = (funeralHome) => {
-
     setSelectedFuneral(funeralHome);
     onSelectFuneralHome(funeralHome.name);
   };
@@ -32,7 +29,7 @@ const FuneralList = ({ onSelectFuneralHome }) => {
   return (
     <div>
       {selectedFuneral ? (
-        <FuneralDetailList funeralHome={selectedFuneral} onSelectFuneralHome={onSelectFuneralHome}/>
+        <FuneralDetailList funeralHome={selectedFuneral} onSelectFuneralHome={onSelectFuneralHome} />
       ) : (
         <div>
           <div className="funeral-list-title">원하는 장례식장을 선택하세요</div>

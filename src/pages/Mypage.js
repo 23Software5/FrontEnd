@@ -1,54 +1,74 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/Mypage.css";
 import { Link } from "react-router-dom";
-import * as api from "../Api"; // 추가: api.js 파일 불러오기
+import * as api from "../Api";
 
 const Mypage = () => {
-  const res = {
+  // 기존의 더미데이터
+  const dummyData = {
     name: "사용자 이름",
     email: "user@example.com",
-    phone: "010-1234-5678",
-    nickname: "닉네임",
+    password: "*********",
+    phoneNumber: "010-1234-5678",
   };
 
-  // useEffect를 사용하여 페이지가 로드될 때 사용자 정보를 가져오도록 설정
+  const [user, setUser] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedName, setEditedName] = useState("");
+  const [editedPhoneNumber, setEditedPhoneNumber] = useState("");
+
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        // 여기에서 getUserProfile 함수를 호출
-        const userProfile = await api.getUserProfile(userData.userId); // userId는 사용자의 아이디로 대체해야 합니다.
-        setUserData(userProfile);
-      } catch (error) {
-        console.error("Error fetching user profile:", error);
-        // 추가: 에러 처리 로직을 추가
-        // 예: 에러 메시지를 표시하는 등
-      }
-    };
+    // 실제로는 로그인 정보에서 사용자 아이디를 가져와서 사용해야 함
+    const userId = "현재 로그인한 사용자의 아이디";
 
-    // 페이지 로드 시 사용자 정보 가져오기
-    fetchUserProfile();
-  }, [userData.userId]); // userId가 변경될 때마다 useEffect가 실행되도록 설정
+    // axios를 사용하여 백엔드 API 호출
+    axios
+      .get(`/users/setting/${userId}`)
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+        // 연결이 실패하면 더미데이터 사용
+        setUser(dummyData);
+      });
+  }, []);
 
-  // 추가: 계정 탈퇴 함수
-  const handleWithdraw = async () => {
-    try {
-      // 여기에서 deleteUserAccount 함수를 호출
-      await api.deleteUserAccount(userId); // userId는 사용자의 아이디로 대체해야 합니다.
-
-      // 성공적으로 탈퇴되면 필요한 로직을 추가
-      // 예: 탈퇴 후 로그아웃 처리, 페이지 리디렉션 등
-      setLoggedIn(false); // 예시로 사용한 setLoggedIn은 로그인 상태를 관리하는 상태 업데이트 함수입니다.
-    } catch (error) {
-      console.error("Error withdrawing user:", error);
-      // 추가: 탈퇴 실패 시 에러 처리 로직을 추가
-      // 예: 에러 메시지를 표시하는 등
-    }
+  const handleEdit = () => {
+    setEditedName(user.name);
+    setEditedPhoneNumber(user.phoneNumber);
+    setIsEditing(true);
   };
+
+  const handleSave = () => {
+    setUser({
+      ...user,
+      name: editedName,
+      phoneNumber: editedPhoneNumber,
+    });
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+  };
+
+  const handleChangeName = (e) => {
+    setEditedName(e.target.value);
+  };
+
+  const handleChangePhoneNumber = (e) => {
+    setEditedPhoneNumber(e.target.value);
+  };
+
+  if (!user) {
+    // API 호출 결과를 기다리는 동안 로딩 상태를 표시할 수 있음
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <div className="my-page-top">마이페이지</div>
-      <div className="my-management">회원정보관리</div>
       <div className="my-page-top">마이페이지</div>
       <div className="my-management">회원정보관리</div>
 
@@ -58,19 +78,39 @@ const Mypage = () => {
             <tbody>
               <tr>
                 <th>이름</th>
-                <td>{res.name}</td>
+                <td>
+                {isEditing ? (
+                    <input
+                      type="text"
+                      value={editedName}
+                      onChange={handleChangeName}
+                    />
+                  ) : (
+                    user.name
+                  )}
+                </td>
               </tr>
               <tr>
                 <th>이메일</th>
-                <td>{res.email}</td>
+                <td>{user.email}</td>
+              </tr>
+              <tr>
+                <th>비밀번호</th>
+                <td>{user.password}</td>
               </tr>
               <tr>
                 <th>전화번호</th>
-                <td>{res.phone}</td>
-              </tr>
-              <tr>
-                <th>닉네임</th>
-                <td>{res.nickname}</td>
+                <td>
+                {isEditing ? (
+                    <input
+                      type="text"
+                      value={editedPhoneNumber}
+                      onChange={handleChangePhoneNumber}
+                    />
+                  ) : (
+                    user.phoneNumber
+                  )}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -78,9 +118,20 @@ const Mypage = () => {
         <br />
 
         <div>
-          <button className="my-update-btn">
-            <div className="my-update-btn-name">정보수정</div>
-          </button>
+          {isEditing ? (
+            <>
+              <button className="my-save-btn" onClick={handleSave}>
+                <div className="my-update-btn-name">저장</div>
+              </button>
+              <button className="my-cancel-btn" onClick={handleCancel}>
+                <div className="my-update-btn-name">취소</div>
+              </button>
+            </>
+          ) : (
+            <button className="my-update-btn" onClick={handleEdit}>
+              <div className="my-update-btn-name">정보수정</div>
+            </button>
+          )}
 
           <button className="my-withdraw-btn">
             <div className="my-withdraw-btn-name">탈퇴하기</div>

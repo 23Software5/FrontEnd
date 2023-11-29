@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Body from "../components/Body";
 import "../styles/Instructor.css";
 
+
 const Instructor = () => {
+  const [likedInstructors, setLikedInstructors] = useState([]);
+  const [showLikedInstructors, setShowLikedInstructors] = useState(false);
+
+  const toggleLike = (instructorName) => {
+    if (likedInstructors.includes(instructorName)) {
+      setLikedInstructors(
+        likedInstructors.filter((name) => name !== instructorName)
+      );
+    } else {
+      setLikedInstructors([...likedInstructors, instructorName]);
+    }
+  };
+  const showLikedInstructorList = () => {
+    setShowLikedInstructors(true);
+  };
+
+  const hideLikedInstructorList = () => {
+    setShowLikedInstructors(false);
+  };
+  
   return (
     <div>
       <div className="img">
@@ -19,11 +40,42 @@ const Instructor = () => {
       <Body />
       <div className="instructor-contain">
         <div className="instructor-col">
+          <div className="instructor-btn-box">
+          
+            <button className="instrunctor-btn"  onClick={showLikedInstructorList}>
+              내가 찜한 지도사
+            </button>
+          </div>
+          {showLikedInstructors && (
+        <div className="modal-overlay">
+          <div className="liked-instructor-list">
+            <h2>내가 찜한 지도사</h2>
+            <ul>
+              {likedInstructors.map((instructor) => (
+                <li key={instructor}>{instructor}</li>
+              ))}
+            </ul>
+            <button onClick={hideLikedInstructorList}>Close</button>
+          </div>
+        </div>
+      )}
+
+          
           <div className="instrucor-mainbox">
             <div className="instructor-box">
               <div className="instrucor-picname">
                 <img className="instructor-pic" src="../img/instructor1.png" />
                 <span className="instructor-name">허은수 지도사</span>
+                <button
+                  onClick={() => toggleLike("허은수 지도사")}
+                  className={
+                    likedInstructors.includes("허은수 지도사")
+                      ? "like-button liked"
+                      : "like-button"
+                  }
+                >
+                  ♥
+                </button>
               </div>
               <div className="instructor-profile">
                 <span className="instructro-jobn">
@@ -48,6 +100,16 @@ const Instructor = () => {
               <div className="instrucor-picname">
                 <img className="instructor-pic" src="../img/instructor2.png" />
                 <span className="instructor-name"> 지민규 지도사</span>
+                <button
+                  onClick={() => toggleLike("지민규 지도사")}
+                  className={
+                    likedInstructors.includes("지민규 지도사")
+                      ? "like-button liked"
+                      : "like-button"
+                  }
+                >
+                  ♥
+                </button>
               </div>
               <div className="instructor-profile">
                 <span className="instructro-jobn">
@@ -73,6 +135,16 @@ const Instructor = () => {
               <div className="instrucor-picname">
                 <img className="instructor-pic" src="../img/instructor3.png" />
                 <span className="instructor-name">장영란 지도사</span>
+                <button
+                  onClick={() => toggleLike("장영란 지도사")}
+                  className={
+                    likedInstructors.includes("장영란 지도사")
+                      ? "like-button liked"
+                      : "like-button"
+                  }
+                >
+                  ♥
+                </button>
               </div>
               <div className="instructor-profile">
                 <span className="instructro-jobn">
@@ -98,6 +170,16 @@ const Instructor = () => {
               <div className="instrucor-picname">
                 <img className="instructor-pic" src="../img/instructor4.png" />
                 <span className="instructor-name">황남영 지도사</span>
+                <button
+                  onClick={() => toggleLike("황남영 지도사")}
+                  className={
+                    likedInstructors.includes("황남영 지도사")
+                      ? "like-button liked"
+                      : "like-button"
+                  }
+                >
+                  ♥
+                </button>
               </div>
               <div className="instructor-profile">
                 <span className="instructro-jobn">
