@@ -38,20 +38,21 @@
 .instrucor-mainbox2 span {
   color: white;
 }
-.instructor-btn-box{
+.instructor-btn-box {
   display: flex;
-justify-content: end;
-
-
+  justify-content: end;
 }
-.instrunctor-btn{
-width: 160px;
-height: 40px;
-font-weight: bold;
-background-color: #adcaa8;
-border-radius: 10px;
-border: none;
-cursor: pointer;
+.liked-instructor-list-modaltitle {
+  margin-bottom: 50px;
+}
+.instrunctor-btn {
+  width: 160px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #adcaa8;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 .like-button.liked {
   color: red;
@@ -116,7 +117,7 @@ cursor: pointer;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-text-align: center;
+  text-align: center;
 }
 
 .liked-instructor-list ul {
@@ -125,14 +126,13 @@ text-align: center;
 }
 
 .liked-instructor-list li {
-  margin-bottom: 50px;
-
+  margin-bottom: 20px;
 }
 
 .liked-instructor-list button {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
-  border:1px solid #495c45;
+  border: 1px solid #495c45;
   font-weight: bold;
   padding: 8px 16px;
   cursor: pointer;
