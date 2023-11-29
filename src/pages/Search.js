@@ -58,7 +58,7 @@ const Search = () => {
       }
     };
 
-    // 컴포넌트가 마운트될 때 장례관 데이터를 가져오기
+
     const fetchFuneralHalls = async () => {
       try {
         const halls = await getAllFuneralHalls();
@@ -72,7 +72,7 @@ const Search = () => {
     fetchDistricts();
     fetchNeighborhoods();
     fetchFuneralHalls();
-  }, [selectedCity, selectedDistrict]); // 의존성 배열에는 selectedCity 및 selectedDistrict 포함
+  }, [selectedCity, selectedDistrict]); 
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
