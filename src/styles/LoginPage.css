@@ -25,9 +25,10 @@
 
 label {
   margin-bottom: 10px;
+
 }
 
-input {
+.input-loginpage {
   width: 250px;
   height: 40px;
   border:none;

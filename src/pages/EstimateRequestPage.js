@@ -44,6 +44,7 @@ const EstimateRequestPage = () => {
               <label>
                 이름
                 <input
+                  className="estimate-input"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -89,6 +90,7 @@ const EstimateRequestPage = () => {
                 <label>
                   무게
                   <input
+                    className="estimate-input"
                     type="text"
                     name="weight"
                     value={formData.weight}
@@ -100,6 +102,7 @@ const EstimateRequestPage = () => {
                 <label>
                   크기
                   <input
+                    className="estimate-input"
                     type="text"
                     name="size"
                     value={formData.size}
@@ -111,6 +114,7 @@ const EstimateRequestPage = () => {
                 <label>
                   종
                   <input
+                    className="estimate-input"
                     type="text"
                     name="breed"
                     value={formData.breed}
@@ -183,7 +187,11 @@ const EstimateRequestPage = () => {
 
           <div className="estimate-request-right">
             <form onSubmit={handleSubmit}>
-              <img src={logoImage} alt="로고" className="estimate-request-logo-image" />
+              <img
+                src={logoImage}
+                alt="로고"
+                className="estimate-request-logo-image"
+              />
               <button type="submit" className="estimate-request-submit-button">
                 견적 신청하기
               </button>

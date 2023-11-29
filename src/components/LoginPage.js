@@ -40,7 +40,7 @@ const LoginPage = ({ setLoggedIn }) => {
         <div className="login-box">
           <label>
             이메일
-            <input
+            <input className="input-loginpage"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -48,7 +48,7 @@ const LoginPage = ({ setLoggedIn }) => {
           </label>
           <label>
             비밀번호
-            <input
+            <input className="input-loginpage"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

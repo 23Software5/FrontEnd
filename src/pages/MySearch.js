@@ -9,6 +9,8 @@ const MySearch = () => {
     location: "서울시 영등포구",
     // description: "가상의 장례식장입니다.",
   });
+  const [reviewText, setReviewText] = useState('');
+  const [starRating, setStarRating] = useState(0);
 
   const openReviewModal = () => {
     setReviewModalOpen(true);
@@ -16,6 +18,24 @@ const MySearch = () => {
 
   const closeReviewModal = () => {
     setReviewModalOpen(false);
+  };
+  const handleReviewTextChange = (e) => {
+    setReviewText(e.target.value);
+  };
+
+  const handleStarRatingChange = (rating) => {
+    setStarRating(rating);
+  };
+
+  const submitReview = () => {
+    console.log('Review Submitted:', {
+      funeralHome: selectedFuneral.name,
+      starRating,
+      reviewText,
+    });
+
+    // Close the modal after submission
+    closeReviewModal();
   };
 
   const formData = {
@@ -31,6 +51,24 @@ const MySearch = () => {
     dateMonth: '1',
     dateDay: '1',
     specialNotes: '특이사항 없음',
+  };
+  
+  const StarRating = ({ onChange }) => {
+    const stars = [1, 2, 3, 4, 5];
+
+    return (
+      <div>
+        {stars.map((star) => (
+          <span
+            key={star}
+            onClick={() => onChange(star)}
+            style={{ cursor: 'pointer', color: star <= starRating ? 'gold' : 'gray' }}
+          >
+            &#9733;
+          </span>
+        ))}
+      </div>
+    );
   };
 
   const FuneralDetails = ({ selectedFuneral }) => {
@@ -172,11 +210,28 @@ const MySearch = () => {
 
       {isReviewModalOpen && (
         <div className="review-modal">
-          {/* 후기 작성 모달 내용 */}
-          <h2>후기 작성</h2>
-          {/* 모달 닫기 버튼 */}
-          <button onClick={closeReviewModal}>닫기</button>
+        <h2>후기 작성</h2>
+        <div className="review-input">
+          <label>
+            장례식장 입력
+            <input type="text" value={selectedFuneral.name} readOnly />
+          </label>
         </div>
+        <div className="review-input">
+          <label>
+            별점
+            <StarRating onChange={handleStarRatingChange} />
+          </label>
+        </div>
+        <div className="review-input">
+          <label>
+            후기 작성
+            <textarea value={reviewText} onChange={handleReviewTextChange} />
+          </label>
+        </div>
+        <button onClick={submitReview}>작성 완료</button>
+        <button onClick={closeReviewModal}>닫기</button>
+      </div>
       )}
     </div>
   );

@@ -37,7 +37,7 @@ label {
   margin-bottom: 5px;
 }
 
-input {
+.estimate-input {
   margin-bottom: 15px;
   margin-left: 15px;
   height: 20px;
