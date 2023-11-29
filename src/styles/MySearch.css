@@ -6,6 +6,9 @@
   margin-top: 20px;
   font-weight: 700;
 }
+.mysearch-info-title{
+margin-bottom:50px;
+}
 
 .my_search_container {
   display: grid;
@@ -41,6 +44,7 @@
   border: 2px solid rgb(39, 36, 36);
   border-radius: 130px;
   padding-top: 30px; 
+  margin-bottom:30px
   
 }
 .My_place { 
@@ -61,6 +65,14 @@
   display: flex;
   justify-content: center;
   margin-top: 20px;
+}
+.mysearch-input{
+  border-radius: 10px;
+  border: 1px solid #495c45;
+  background-color: white;
+  margin-left: 10px;
+  width: 100px;
+  height: 30px;
 }
 
 .status-buttons button {
@@ -83,7 +95,6 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* MySearch.css */
 
 .review-modal {
   position: fixed;
