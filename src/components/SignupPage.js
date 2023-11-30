@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import "../styles/SignupPage.css";
 import LogoImage from "../assets/logo.jpg";
 
-import * as api from "../Api"; // 추가: api.js 파일 불러오기
+import * as api from "../Api";
 
 const SignupPage = ({ setSignupSuccess }) => {
-  const [nickname, setNickname] = useState(""); // 변경: name을 nickname으로 변경
+  const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState(""); // Step 1: Add phone number state
 
   const isEmailValid = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,9 +18,10 @@ const SignupPage = ({ setSignupSuccess }) => {
 
   const isFormValid = () => {
     return (
-      nickname.trim() !== "" && // 변경: name을 nickname으로 변경
+      nickname.trim() !== "" &&
       email.trim() !== "" &&
       password.trim() !== "" &&
+      phoneNumber.trim() !== "" && // Step 4: Validate phone number
       isEmailValid()
     );
   };
@@ -27,21 +29,19 @@ const SignupPage = ({ setSignupSuccess }) => {
   const handleSignup = async () => {
     if (isFormValid()) {
       const userData = {
-        nickname, // 변경: name을 nickname으로 변경
+        nickname,
         email,
         password,
+        phoneNumber,
       };
 
       try {
         const response = await api.registerUser(userData);
 
-        // 성공적으로 가입한 경우
         console.log("User registration successful:", response);
 
-        // 추가: 회원가입 성공 시 부모 컴포넌트의 상태 업데이트
         setSignupSuccess(true);
       } catch (error) {
-        // 가입 실패한 경우
         console.error("Error registering user:", error);
         alert("회원가입에 실패했습니다.");
       }
@@ -56,15 +56,15 @@ const SignupPage = ({ setSignupSuccess }) => {
         <div className="login-title">회원가입</div>
         <div className="signup-box">
           <label>
-            닉네임{" "}
+            닉네임
             <input
               type="text"
-              value={nickname} // 변경: name을 nickname으로 변경
-              onChange={(e) => setNickname(e.target.value)} // 변경: name을 nickname으로 변경
+              value={nickname}
+              onChange={(e) => setNickname(e.target.value)}
             />
           </label>
           <label>
-            이메일{" "}
+            이메일
             <input
               type="text"
               value={email}
@@ -72,11 +72,19 @@ const SignupPage = ({ setSignupSuccess }) => {
             />
           </label>
           <label>
-            비밀번호{" "}
+            비밀번호
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <label>
+            전화번호
+            <input
+              type="text"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
           </label>
         </div>

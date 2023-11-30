@@ -5,25 +5,19 @@ import { Link } from "react-router-dom";
 import * as api from "../Api";
 
 const Mypage = () => {
-  const dummyData = {
-    name: "사용자 이름",
-    email: "user@example.com",
-    password: "*********",
-    phoneNumber: "010-1234-5678",
-  };
-
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState("");
   const [editedPhoneNumber, setEditedPhoneNumber] = useState("");
 
   useEffect(() => {
-    const userId = "현재 로그인한 사용자의 아이디";
+    const userId = localStorage.getItem("userId");
+    console.log("userId:", userId);
 
-    axios
-      .get(`/users/setting/${userId}`)
-      .then((response) => {
-        setUser(response.data);
+    api
+      .getUserProfile(userId)
+      .then((userData) => {
+        setUser(userData);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
@@ -42,16 +36,18 @@ const Mypage = () => {
     const trimmedPhoneNumber = editedPhoneNumber.trim();
   
     if (trimmedName !== "" && trimmedPhoneNumber !== "") {
-      // API 요청을 보내어 사용자 데이터를 업데이트합니다.
-      const userId = "현재 로그인한 사용자의 아이디";
+      // localStorage에서 userId 가져오기
+      const userId = localStorage.getItem("userId");
   
+      // 사용자 데이터를 업데이트하는 API 요청
       axios
         .put(`/users/${userId}`, {
-          name: trimmedName,
-          phoneNumber: trimmedPhoneNumber,
+          email: user.email,
+          password: user.password,
+          nickname: trimmedName,
+          phonenumber: trimmedPhoneNumber,
         })
-        .then((response) => {
-          // API 요청이 성공하면 로컬 상태를 업데이트합니다.
+        .then(() => {
           setUser({
             ...user,
             name: trimmedName,
@@ -60,13 +56,14 @@ const Mypage = () => {
           setIsEditing(false);
         })
         .catch((error) => {
-          console.error("Error updating user data:", error);
+          console.error("사용자 데이터 업데이트 오류:", error);
           window.alert("사용자 데이터 업데이트에 실패했습니다.");
         });
     } else {
       window.alert("이름과 전화번호는 비워둘 수 없습니다.");
     }
   };
+  
   
 
   const handleCancel = () => {
