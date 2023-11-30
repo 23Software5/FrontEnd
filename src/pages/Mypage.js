@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import * as api from "../Api";
 
 const Mypage = () => {
-  const dummyData = {
-    name: "사용자 이름",
-    email: "user@example.com",
-    password: "*********",
-    phoneNumber: "010-1234-5678",
+  const initialUserData = {
+    name: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
   };
 
   const [user, setUser] = useState(null);
@@ -20,14 +20,13 @@ const Mypage = () => {
   useEffect(() => {
     const userId = "현재 로그인한 사용자의 아이디";
 
-    axios
-      .get(`/users/setting/${userId}`)
+    api.getUserData(userId)  // Assuming there is a function in your api module to fetch user data
       .then((response) => {
         setUser(response.data);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
-        setUser(dummyData);
+        setUser(initialUserData);
       });
   }, []);
 
