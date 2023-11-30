@@ -38,7 +38,6 @@ const MySearch = () => {
       reviewText,
     });
 
-    // Close the modal after submission
     closeReviewModal();
   };
 

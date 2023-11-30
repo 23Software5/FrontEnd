@@ -1,4 +1,3 @@
-// api.js
 import axios from "axios";
 
 const baseUrl = "http://localhost:8080"; // 서버의 주소에 맞게 수정
