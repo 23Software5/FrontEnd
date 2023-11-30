@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import * as api from "../Api";
 
 const Mypage = () => {
-  // 기존의 더미데이터
   const dummyData = {
     name: "사용자 이름",
     email: "user@example.com",
@@ -19,10 +18,8 @@ const Mypage = () => {
   const [editedPhoneNumber, setEditedPhoneNumber] = useState("");
 
   useEffect(() => {
-    // 실제로는 로그인 정보에서 사용자 아이디를 가져와서 사용해야 함
     const userId = "현재 로그인한 사용자의 아이디";
 
-    // axios를 사용하여 백엔드 API 호출
     axios
       .get(`/users/setting/${userId}`)
       .then((response) => {
@@ -30,7 +27,6 @@ const Mypage = () => {
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
-        // 연결이 실패하면 더미데이터 사용
         setUser(dummyData);
       });
   }, []);
@@ -42,13 +38,36 @@ const Mypage = () => {
   };
 
   const handleSave = () => {
-    setUser({
-      ...user,
-      name: editedName,
-      phoneNumber: editedPhoneNumber,
-    });
-    setIsEditing(false);
+    const trimmedName = editedName.trim();
+    const trimmedPhoneNumber = editedPhoneNumber.trim();
+  
+    if (trimmedName !== "" && trimmedPhoneNumber !== "") {
+      // API 요청을 보내어 사용자 데이터를 업데이트합니다.
+      const userId = "현재 로그인한 사용자의 아이디";
+  
+      axios
+        .put(`/users/${userId}`, {
+          name: trimmedName,
+          phoneNumber: trimmedPhoneNumber,
+        })
+        .then((response) => {
+          // API 요청이 성공하면 로컬 상태를 업데이트합니다.
+          setUser({
+            ...user,
+            name: trimmedName,
+            phoneNumber: trimmedPhoneNumber,
+          });
+          setIsEditing(false);
+        })
+        .catch((error) => {
+          console.error("Error updating user data:", error);
+          window.alert("사용자 데이터 업데이트에 실패했습니다.");
+        });
+    } else {
+      window.alert("이름과 전화번호는 비워둘 수 없습니다.");
+    }
   };
+  
 
   const handleCancel = () => {
     setIsEditing(false);
@@ -63,7 +82,6 @@ const Mypage = () => {
   };
 
   if (!user) {
-    // API 호출 결과를 기다리는 동안 로딩 상태를 표시할 수 있음
     return <div>Loading...</div>;
   }
 
@@ -79,7 +97,7 @@ const Mypage = () => {
               <tr>
                 <th>이름</th>
                 <td>
-                {isEditing ? (
+                  {isEditing ? (
                     <input
                       type="text"
                       value={editedName}
@@ -101,7 +119,7 @@ const Mypage = () => {
               <tr>
                 <th>전화번호</th>
                 <td>
-                {isEditing ? (
+                  {isEditing ? (
                     <input
                       type="text"
                       value={editedPhoneNumber}

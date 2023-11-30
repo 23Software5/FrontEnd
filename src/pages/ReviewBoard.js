@@ -32,7 +32,7 @@ const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar }) => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        // getAllReviews 함수를 사용하여 후기를 가져옵니다.
+
         const reviewsData = await api.getAllReviews();
         setReviews(reviewsData);
       } catch (error) {
