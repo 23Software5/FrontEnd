@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 import "../styles/Mypage.css";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
 
 const Mypage = () => {
-  const initialUserData = {
-    name: "",
-    email: "",
-    password: "",
-    phoneNumber: "",
-  };
-
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState("");
@@ -20,13 +13,14 @@ const Mypage = () => {
   useEffect(() => {
     const userId = "현재 로그인한 사용자의 아이디";
 
-    api.getUserData(userId)  // Assuming there is a function in your api module to fetch user data
-      .then((response) => {
-        setUser(response.data);
+    api
+      .getUserProfile(userId)
+      .then((userData) => {
+        setUser(userData);
       })
       .catch((error) => {
         console.error("Error fetching user data:", error);
-        setUser(initialUserData);
+        setUser(dummyData);
       });
   }, []);
 
@@ -39,15 +33,17 @@ const Mypage = () => {
   const handleSave = () => {
     const trimmedName = editedName.trim();
     const trimmedPhoneNumber = editedPhoneNumber.trim();
-  
+
     if (trimmedName !== "" && trimmedPhoneNumber !== "") {
       // API 요청을 보내어 사용자 데이터를 업데이트합니다.
       const userId = "현재 로그인한 사용자의 아이디";
-  
+
       axios
         .put(`/users/${userId}`, {
-          name: trimmedName,
-          phoneNumber: trimmedPhoneNumber,
+          email: user.email,
+          password: user.password,
+          nickname: trimmedName,
+          phonenumber: trimmedPhoneNumber,
         })
         .then((response) => {
           // API 요청이 성공하면 로컬 상태를 업데이트합니다.
@@ -66,7 +62,6 @@ const Mypage = () => {
       window.alert("이름과 전화번호는 비워둘 수 없습니다.");
     }
   };
-  
 
   const handleCancel = () => {
     setIsEditing(false);
