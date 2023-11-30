@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import "../styles/Mypage.css";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
@@ -11,7 +11,8 @@ const Mypage = () => {
   const [editedPhoneNumber, setEditedPhoneNumber] = useState("");
 
   useEffect(() => {
-    const userId = "현재 로그인한 사용자의 아이디";
+    const userId = localStorage.getItem("userId");
+    console.log("userId:", userId);
 
     api
       .getUserProfile(userId)
@@ -33,11 +34,12 @@ const Mypage = () => {
   const handleSave = () => {
     const trimmedName = editedName.trim();
     const trimmedPhoneNumber = editedPhoneNumber.trim();
-
+  
     if (trimmedName !== "" && trimmedPhoneNumber !== "") {
-      // API 요청을 보내어 사용자 데이터를 업데이트합니다.
-      const userId = "현재 로그인한 사용자의 아이디";
-
+      // localStorage에서 userId 가져오기
+      const userId = localStorage.getItem("userId");
+  
+      // 사용자 데이터를 업데이트하는 API 요청
       axios
         .put(`/users/${userId}`, {
           email: user.email,
@@ -45,8 +47,7 @@ const Mypage = () => {
           nickname: trimmedName,
           phonenumber: trimmedPhoneNumber,
         })
-        .then((response) => {
-          // API 요청이 성공하면 로컬 상태를 업데이트합니다.
+        .then(() => {
           setUser({
             ...user,
             name: trimmedName,
@@ -55,13 +56,15 @@ const Mypage = () => {
           setIsEditing(false);
         })
         .catch((error) => {
-          console.error("Error updating user data:", error);
+          console.error("사용자 데이터 업데이트 오류:", error);
           window.alert("사용자 데이터 업데이트에 실패했습니다.");
         });
     } else {
       window.alert("이름과 전화번호는 비워둘 수 없습니다.");
     }
   };
+  
+  
 
   const handleCancel = () => {
     setIsEditing(false);
