@@ -49,7 +49,7 @@ const Instructor = () => {
           {showLikedInstructors && (
         <div className="modal-overlay">
           <div className="liked-instructor-list">
-            <h2>내가 찜한 지도사</h2>
+            <h2 className="liked-instructor-list-modaltitle">내가 찜한 지도사</h2>
             <ul>
               {likedInstructors.map((instructor) => (
                 <li key={instructor}>{instructor}</li>

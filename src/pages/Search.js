@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Body from "../components/Body";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
+import {
+  getAllFuneralHalls,
+  // api.js에서 가져올 다른 함수들
+} from "../Api";
 import "../styles/Search.css";
 
 const Search = () => {
@@ -12,16 +15,64 @@ const Search = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectedNeighborhood, setSelectedNeighborhood] = useState("");
+  const [cities, setCities] = useState([]);
+  const [districtsByCity, setDistrictsByCity] = useState({});
+  const [neighborhoodsByDistrict, setNeighborhoodsByDistrict] = useState({});
+  const [funeralHalls, setFuneralHalls] = useState([]);
 
-  const cities = ["서울시", "부산시"];
-  const districtsByCity = {
-    서울시: ["강남구", "강동구"],
-    부산시: ["해운대구", "동래구"],
-  };
-  const neighborhoodsByDistrict = {
-    강남구: ["삼성동", "논현동"],
-    강동구: ["천호동", "둔촌동"],
-  };
+  useEffect(() => {
+    // API에서 도시 데이터를 가져오기
+    const fetchCities = async () => {
+      try {
+        // 실제 API 엔드포인트로 교체하세요
+        const citiesData = await getCities();
+        setCities(citiesData);
+      } catch (error) {
+        console.error("도시 데이터를 불러오는 중 에러 발생:", error);
+      }
+    };
+
+    // 선택된 도시에 기반하여 API에서 구 데이터 가져오기
+    const fetchDistricts = async () => {
+      try {
+        if (selectedCity) {
+          // 실제 API 엔드포인트로 교체하세요
+          const districtsData = await getDistricts(selectedCity);
+          setDistrictsByCity({ [selectedCity]: districtsData });
+        }
+      } catch (error) {
+        console.error("구 데이터를 불러오는 중 에러 발생:", error);
+      }
+    };
+
+    // 선택된 구에 기반하여 API에서 동(읍면동) 데이터 가져오기
+    const fetchNeighborhoods = async () => {
+      try {
+        if (selectedDistrict) {
+          // 실제 API 엔드포인트로 교체하세요
+          const neighborhoodsData = await getNeighborhoods(selectedDistrict);
+          setNeighborhoodsByDistrict({ [selectedDistrict]: neighborhoodsData });
+        }
+      } catch (error) {
+        console.error("동(읍면동) 데이터를 불러오는 중 에러 발생:", error);
+      }
+    };
+
+
+    const fetchFuneralHalls = async () => {
+      try {
+        const halls = await getAllFuneralHalls();
+        setFuneralHalls(halls);
+      } catch (error) {
+        console.error("장례관 데이터를 불러오는 중 에러 발생:", error);
+      }
+    };
+
+    fetchCities();
+    fetchDistricts();
+    fetchNeighborhoods();
+    fetchFuneralHalls();
+  }, [selectedCity, selectedDistrict]); 
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);

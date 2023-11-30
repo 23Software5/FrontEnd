@@ -13,9 +13,16 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
       <div className="funeral-detail-container-left">
         <div className="funeral-detail-name">{funeralHome.name}</div>
         <div className="funeral-detail-location">
-          주소 : {funeralHome.location}
+          위치 : {funeralHome.fh_location}
         </div>
+        <div className="funeral-detail-link">링크 : {funeralHome.fh_link}</div>
 
+        <div className="funeral-detail-telnumber">
+          전화번호 : {funeralHome.fh_telnumber}
+        </div>
+        <div className="funeral-detail-intro">
+          소개 : {funeralHome.fh_intro}
+        </div>
         <div className="funeral-detail-button-container">
           <Link to="/estimate-request">
             <button
@@ -31,7 +38,6 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
       {funeralHome && (
         <div className="funeral-reviews-container-right">
           <h3 className="funeral-reviews-container-right-title">후기</h3>
-          {/* Render ReviewBoard without banner and search bar */}
           <ReviewBoard
             selectedFuneralHome={funeralHome}
             hideBannerAndSearchBar
