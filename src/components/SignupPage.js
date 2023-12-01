@@ -9,7 +9,7 @@ const SignupPage = ({ setSignupSuccess }) => {
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState(""); // Step 1: Add phone number state
+  const [phoneNumber, setPhoneNumber] = useState(""); 
 
   const isEmailValid = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,7 +21,7 @@ const SignupPage = ({ setSignupSuccess }) => {
       nickname.trim() !== "" &&
       email.trim() !== "" &&
       password.trim() !== "" &&
-      phoneNumber.trim() !== "" && // Step 4: Validate phone number
+      phoneNumber.trim() !== "" && 
       isEmailValid()
     );
   };
@@ -32,7 +32,7 @@ const SignupPage = ({ setSignupSuccess }) => {
         nickname,
         email,
         password,
-        phoneNumber,
+        phoneNumber: parseInt(phoneNumber, 10),
       };
 
       try {

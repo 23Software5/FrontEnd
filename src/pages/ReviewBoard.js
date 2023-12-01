@@ -1,40 +1,19 @@
 import React, { useState, useEffect } from "react";
-
-import * as api from "../Api"; // 추가: api.js 파일 불러오기
-
+import * as api from "../Api";
 import "../styles/ReviewBoard.css";
 
-const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar }) => {
+const ReviewBoard = ({ hideBannerAndSearchBar }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const [reviews, setReviews] = useState([
-    {
-      name: "김OO",
-      date: "2023-11-14",
-      funeralHome: "ABC 장례식장",
-      content: "서비스가 훌륭합니다!",
-    },
-    {
-      name: "이OO",
-      date: "2023-01-01",
-      funeralHome: "DEF 장례식장",
-      content: "서비스가 훌륭합니다!",
-    },
-    {
-      name: "최OO",
-      date: "2023-01-01",
-      funeralHome: "GHI 장례식장",
-      content: "서비스가 훌륭합니다!",
-    },
-  ]);
+  const [reviews, setReviews] = useState([]);
   const [filteredReviews, setFilteredReviews] = useState(reviews);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-
+        
         const reviewsData = await api.getAllReviews();
-        setReviews(reviewsData);
+        console.log("reviewsData:", reviewsData);
+        setReviews(reviewsData || []);
       } catch (error) {
         console.error("후기를 불러오는 중 오류 발생:", error);
       }
@@ -43,22 +22,13 @@ const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar }) => {
     fetchReviews();
   }, []);
 
-  useEffect(() => {
-    const filtered = selectedFuneralHome
-      ? reviews.filter(
-          (review) => review.funeralHome === selectedFuneralHome.name
-        )
-      : reviews;
-
-    setFilteredReviews(filtered);
-  }, [selectedFuneralHome, reviews]);
-
   const handleSearch = () => {
     const filtered = reviews.filter((review) =>
       review.funeralHome.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredReviews(filtered);
   };
+
   return (
     <div>
       {!hideBannerAndSearchBar && (
@@ -80,18 +50,20 @@ const ReviewBoard = ({ selectedFuneralHome, hideBannerAndSearchBar }) => {
       )}
       <div className="review-list">
         <div className="review-list-items">
-          {filteredReviews.map((review, index) => (
-            <div key={index} className="review-box">
-              <div className="review-header">
-                <div>
-                  <span className="name">{review.name}</span> |{" "}
-                  <span className="date">{review.date}</span>
+          {(filteredReviews.length > 0 ? filteredReviews : reviews).map(
+            (review, index) => (
+              <div key={index} className="review-box">
+                <div className="review-header">
+                  <div>
+                    <span className="name">{review.name}</span> |{" "}
+                    <span className="date">{review.date}</span>
+                  </div>
+                  <div className="funeral-home">{review.funeralHome}</div>
                 </div>
-                <div className="funeral-home">{review.funeralHome}</div>
+                <div className="content">{review.fr_text}</div>
               </div>
-              <div className="content">{review.content}</div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       </div>
     </div>

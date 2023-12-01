@@ -30,7 +30,7 @@ margin-bottom:50px;
   border: 2px solid rgb(39, 36, 36);
   border-radius: 20px;
   height: 80%; /*높이를 중앙 기준으로 80%로 설정 */
-  width: 80%; /* 너비를 중앙 기준으로 80%로 설정 */
+  width: 530px; /* 너비를 중앙 기준으로 80%로 설정 */
   
 }
 .My_pet_panel {
@@ -71,7 +71,7 @@ margin-bottom:50px;
   border: 1px solid #495c45;
   background-color: white;
   margin-left: 10px;
-  width: 100px;
+  width: 90px;
   height: 30px;
 }
 
