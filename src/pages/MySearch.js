@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "../styles/MySearch.css";
-
-const baseUrl = "http://localhost:8080";
 
 const MySearch = () => {
   const [mystate, setMystate] = useState([
@@ -12,36 +9,12 @@ const MySearch = () => {
   ]);
   const [isReviewModalOpen, setReviewModalOpen] = useState(false);
   const [selectedFuneral, setSelectedFuneral] = useState({
-    name: "",
-    location: "",
+    name: "포포즈 장례식장",
+    location: "서울시 강남구 삼성동",
   });
   const [reviewText, setReviewText] = useState("");
   const [starRating, setStarRating] = useState(0);
-  const [estimateData, setEstimateData] = useState(null);
 
-  useEffect(() => {
-    const userId = localStorage.getItem("userId");
-    fetchEstimateData(userId);
-  }, []);
-  
-  const fetchEstimateData = async (userId) => {
-    try {
-      const response = await axios.get(`${baseUrl}/requests/by-user/${userId}`);
-      setEstimateData(response.data);
-    
-      const fhRequest = response.data[0]; // fhRequest 객체에 접근하는 방법은 데이터 구조에 따라 다를 수 있습니다.
-  
-      setSelectedFuneral({
-        name: fhRequest?.funeralhall?.fh_name || '',
-        location: fhRequest?.funeralhall?.fh_location || '',
-      });
-    } catch (error) {
-      console.error("Error fetching check estimate:", error);
-    }
-  };
-
-
-  
   const openReviewModal = () => {
     setReviewModalOpen(true);
   };
@@ -49,7 +22,6 @@ const MySearch = () => {
   const closeReviewModal = () => {
     setReviewModalOpen(false);
   };
-
   const handleReviewTextChange = (e) => {
     setReviewText(e.target.value);
   };
@@ -59,13 +31,28 @@ const MySearch = () => {
   };
 
   const submitReview = () => {
-    console.log("후기 제출됨:", {
+    console.log("Review Submitted:", {
       funeralHome: selectedFuneral.name,
       starRating,
       reviewText,
     });
 
     closeReviewModal();
+  };
+
+  const formData = {
+    name: "워니",
+    birthYear: "2020",
+    birthMonth: "11",
+    birthDay: "5",
+    weight: "4kg",
+    size: "소형",
+    breed: "말티즈",
+    burialMethod: "납골당",
+    dateYear: "2023",
+    dateMonth: "11",
+    dateDay: "25",
+    specialNotes: "없음",
   };
 
   const StarRating = ({ onChange }) => {
@@ -100,7 +87,9 @@ const MySearch = () => {
         <div>
           <strong>위치:</strong> {selectedFuneral.location}
         </div>
-        {/* 이 외의 정보도 필요한 경우, 적절한 정보 추가 */}
+        {/* <div>
+          <strong>설명:</strong> {selectedFuneral.description}
+        </div> */}
       </div>
     );
   };
@@ -126,37 +115,36 @@ const MySearch = () => {
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={estimateData?.name || ""}
+                  value={formData.name}
                   readOnly
                 />
               </label>
             </div>
             <div className="date-input-container">
-              {/* 생년월일과 관련된 부분 수정 */}
               <label>
                 생년월일
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.birthYear || ""} 년`}
+                  value={formData.birthYear}
                   readOnly
-                />
+                />년
               </label>
               <label>
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.birthMonth || ""} 월`}
+                  value={formData.birthMonth}
                   readOnly
-                />
+                />월
               </label>
               <label>
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.birthDay || ""} 일`}
+                  value={formData.birthDay}
                   readOnly
-                />
+                />일
               </label>
             </div>
             <div>
@@ -165,7 +153,7 @@ const MySearch = () => {
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={estimateData?.weight || ""}
+                  value={formData.weight}
                   readOnly
                 />
               </label>
@@ -176,7 +164,7 @@ const MySearch = () => {
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={estimateData?.size || ""}
+                  value={formData.size}
                   readOnly
                 />
               </label>
@@ -187,7 +175,7 @@ const MySearch = () => {
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={estimateData?.breed || ""}
+                  value={formData.breed}
                   readOnly
                 />
               </label>
@@ -198,46 +186,45 @@ const MySearch = () => {
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={estimateData?.burialMethod || ""}
+                  value={formData.burialMethod}
                   readOnly
                 />
               </label>
             </div>
             <div className="date-input-container">
-              {/* 일시와 관련된 부분 수정 */}
               <label>
                 일시
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.dateYear || ""} 년`}
+                  value={formData.dateYear}
                   readOnly
-                />
+                />년
               </label>
               <label>
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.dateMonth || ""} 월`}
+                  value={formData.dateMonth}
                   readOnly
-                />
+                />월
               </label>
               <label>
                 <input
                   className="mysearch-input"
                   type="text"
-                  value={`${estimateData?.dateDay || ""} 일`}
+                  value={formData.dateDay}
                   readOnly
-                />
+                />일
               </label>
             </div>
             <div className="estiate-request-footer">
-              <div>
-                <label className="special-notes-label">
+              
+                <label>
                   특이사항
-                  <textarea value={estimateData?.specialNotes || ""} readOnly />
+                  <textarea  className="special-search-label" value={formData.specialNotes} readOnly />
                 </label>
-              </div>
+              
             </div>
           </div>
         </div>

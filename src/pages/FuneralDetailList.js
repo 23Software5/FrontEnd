@@ -13,15 +13,15 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
       <div className="funeral-detail-container-left">
         <div className="funeral-detail-name">{funeralHome.name}</div>
         <div className="funeral-detail-location">
-          위치 : {funeralHome.fh_location}
+          위치 : {funeralHome.location}
         </div>
-        <div className="funeral-detail-link">링크 : {funeralHome.fh_link}</div>
+        <div className="funeral-detail-link">링크 : {funeralHome.link}</div>
 
         <div className="funeral-detail-telnumber">
-          전화번호 : {funeralHome.fh_telnumber}
+          전화번호 : {funeralHome.telnum}
         </div>
         <div className="funeral-detail-intro">
-          소개 : {funeralHome.fh_intro}
+          소개 : {funeralHome.description}
         </div>
         <div className="funeral-detail-button-container">
           <Link to="/estimate-request">
