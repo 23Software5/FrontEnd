@@ -19,6 +19,8 @@ const MyReview = () => {
     fetchUserReviews();
   }, []);
 
+  
+
   return (
     <div>
       <div className="img">
@@ -30,19 +32,20 @@ const MyReview = () => {
       </div>
       <div className="my-review-middle">내 후기 조회</div>
       <div className="review-list">
-        {userReviews.map((review, index) => (
-          <div key={index} className="review-box">
+        {/* {userReviews.map((review, index) => ( */}
+          <div className="review-box">
             <div className="review-header">
               <div>
-                <span className="name">{review.user?.nickname}</span> |{" "}
-                <span className="date">{review.fh_date}</span>
+                <span className="name">무로</span> |{" "}
+                <span className="date">2023.12.06</span>
               </div>
-              <div className="funeral-home">{review.funeralhall?.fh_name}</div>
+              <div className="funeral-home">포포즈 장례식장</div>
             </div>
-            <div className="content">{review.reviewText}</div>
-            <button className="delete-button">삭제하기</button>
+            <div className="myreview-star">별점 ⭐⭐⭐⭐⭐</div>
+            <div className="content">친절한 서비스 감사합니다 ~</div>
+            <div className="deletebtn-box"><button className="delete-button">삭제하기</button></div>
           </div>
-        ))}
+        {/* ))} */}
       </div>
     </div>
   );

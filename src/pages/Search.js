@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Body from "../components/Body";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import {
-  getAllFuneralHalls,
-  // api.js에서 가져올 다른 함수들
-} from "../Api";
+
 import "../styles/Search.css";
 
 const Search = () => {
@@ -15,64 +12,16 @@ const Search = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [selectedNeighborhood, setSelectedNeighborhood] = useState("");
-  const [cities, setCities] = useState([]);
-  const [districtsByCity, setDistrictsByCity] = useState({});
-  const [neighborhoodsByDistrict, setNeighborhoodsByDistrict] = useState({});
-  const [funeralHalls, setFuneralHalls] = useState([]);
 
-  useEffect(() => {
-    // API에서 도시 데이터를 가져오기
-    const fetchCities = async () => {
-      try {
-        // 실제 API 엔드포인트로 교체하세요
-        const citiesData = await getCities();
-        setCities(citiesData);
-      } catch (error) {
-        console.error("도시 데이터를 불러오는 중 에러 발생:", error);
-      }
-    };
-
-    // 선택된 도시에 기반하여 API에서 구 데이터 가져오기
-    const fetchDistricts = async () => {
-      try {
-        if (selectedCity) {
-          // 실제 API 엔드포인트로 교체하세요
-          const districtsData = await getDistricts(selectedCity);
-          setDistrictsByCity({ [selectedCity]: districtsData });
-        }
-      } catch (error) {
-        console.error("구 데이터를 불러오는 중 에러 발생:", error);
-      }
-    };
-
-    // 선택된 구에 기반하여 API에서 동(읍면동) 데이터 가져오기
-    const fetchNeighborhoods = async () => {
-      try {
-        if (selectedDistrict) {
-          // 실제 API 엔드포인트로 교체하세요
-          const neighborhoodsData = await getNeighborhoods(selectedDistrict);
-          setNeighborhoodsByDistrict({ [selectedDistrict]: neighborhoodsData });
-        }
-      } catch (error) {
-        console.error("동(읍면동) 데이터를 불러오는 중 에러 발생:", error);
-      }
-    };
-
-
-    const fetchFuneralHalls = async () => {
-      try {
-        const halls = await getAllFuneralHalls();
-        setFuneralHalls(halls);
-      } catch (error) {
-        console.error("장례관 데이터를 불러오는 중 에러 발생:", error);
-      }
-    };
-
-    fetchCities();
-    fetchDistricts();
-    fetchNeighborhoods();
-    fetchFuneralHalls();
-  }, [selectedCity, selectedDistrict]); 
+  const cities = ["서울시", "부산시"];
+  const districtsByCity = {
+    서울시: ["강남구", "강동구"],
+    부산시: ["해운대구", "동래구"],
+  };
+  const neighborhoodsByDistrict = {
+    강남구: ["삼성동", "논현동"],
+    강동구: ["천호동", "둔촌동"],
+  };
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
@@ -97,29 +46,19 @@ const Search = () => {
 
   return (
     <div>
-      <div className="img">
-        <div className="Search-imgcontent">
-          <span className="Search-imgcontenttitle">맟춤검색</span>
-          <br />
-          <br />
-          <span>
-            전문적인 맞춤 반려동물 장례 업체를 찾아 <br />
-            사랑하는 반려동물과의 소중한 순간을 추억하세요.
-          </span>
-        </div>
-      </div>
+      <div className="img"></div>
       <Body />
       <div className="title">화장 후, 희망하는 안치 방법을 선택해 주세요.</div>
       <div className="options-container">
         <div
           className={`option-box1 ${
-            selectedOption === "납골당/봉인당" ? "selected" : ""
+            selectedOption === "납골당" ? "selected" : ""
           }`}
-          onClick={() => handleOptionClick("납골당/봉인당")}
+          onClick={() => handleOptionClick("납골당")}
         >
           <p>납골당/봉인당</p>
           <img
-            className="search-img"
+          className="search-img"
             src="https://th.bing.com/th/id/R.2421a92909471648bedcf53712b26e15?rik=Ek5ELPMhM2MyCw&riu=http%3a%2f%2fwww.osungfuneral.co.kr%2ffiles%2fattach%2fimages%2f215%2f070%2f015%2fce71f83e491a6c84678e64a52b9cefee.jpg&ehk=5EceWNKc3bug5MDNcZLxDdTj3venfiyYnhPa6F%2fuEKU%3d&risl=&pid=ImgRaw&r=0"
             alt="search1"
           />
@@ -135,7 +74,7 @@ const Search = () => {
         >
           <p>수목장</p>
           <img
-            className="search-img"
+          className="search-img"
             src="https://th.bing.com/th/id/OIP.-COO1ggAGZUzv3_XcdMheQHaHa?w=179&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
             alt="search2"
           />
@@ -150,7 +89,7 @@ const Search = () => {
         >
           <p>산골</p>
           <img
-            className="search-img"
+          className="search-img"
             src="https://th.bing.com/th/id/OIP.DToDLDAue1pXtIK2zX1JGAHaE8?w=270&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
             alt="search3"
           />
@@ -165,7 +104,7 @@ const Search = () => {
         >
           <p>스톤 제작</p>
           <img
-            className="search-img"
+          className="search-img"
             src="https://petmemorial.co.kr/wp-content/uploads/2021/09/%EA%B0%81%EC%9D%B8%EC%8A%A4%ED%86%A4%ED%95%A85.jpg"
             alt="search4"
           />
@@ -253,8 +192,7 @@ const Search = () => {
         </div>
       </div>
       <Link to="/funeral-list">
-        <button className="findfuneral-btn">검색하기</button>
-      </Link>
+      <button className="findfuneral-btn">검색하기</button></Link>
     </div>
   );
 };

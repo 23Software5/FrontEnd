@@ -4,14 +4,14 @@ import "../styles/Mypage.css";
 import { Link } from "react-router-dom";
 import * as api from "../Api";
 
-
 const Mypage = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
 
-    api.getUserProfile(userId)
+    api
+      .getUserProfile(userId)
       .then((userData) => {
         setUser(userData);
       })
@@ -47,7 +47,7 @@ const Mypage = () => {
               </tr>
               <tr>
                 <th>전화번호</th>
-                <td>{user.phoneNumber}</td>
+                <td>010-1234-5678</td>
               </tr>
             </tbody>
           </table>

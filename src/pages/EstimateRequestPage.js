@@ -60,7 +60,11 @@ const EstimateRequestPage = () => {
                     value={formData.birthYear}
                     onChange={handleInputChange}
                   >
-                    <option value="2023">2023</option>
+                    {[...Array(2023 - 2000)].map((_, index) => (
+                      <option key={index + 2001} value={index + 2001}>
+                        {index + 2001}
+                      </option>
+                    ))}
                   </select>
                   년
                 </label>
@@ -70,7 +74,11 @@ const EstimateRequestPage = () => {
                     value={formData.birthMonth}
                     onChange={handleInputChange}
                   >
-                    <option value="1">1</option>
+                    {[...Array(12)].map((_, index) => (
+                      <option key={index + 1} value={index + 1}>
+                        {index + 1}
+                      </option>
+                    ))}
                   </select>
                   월
                 </label>
@@ -80,7 +88,12 @@ const EstimateRequestPage = () => {
                     value={formData.birthDay}
                     onChange={handleInputChange}
                   >
-                    <option value="1">1</option>
+                    {/* Generate options for days 1 to 31 */}
+                    {[...Array(31)].map((_, index) => (
+                      <option key={index + 1} value={index + 1}>
+                        {index + 1}
+                      </option>
+                    ))}
                   </select>
                   일
                 </label>
@@ -145,7 +158,11 @@ const EstimateRequestPage = () => {
                     value={formData.dateYear}
                     onChange={handleInputChange}
                   >
-                    <option value="2023">2023</option>
+                    {[...Array(2023 - 2000)].map((_, index) => (
+                      <option key={index + 2001} value={index + 2001}>
+                        {index + 2001}
+                      </option>
+                    ))}
                   </select>
                   년
                 </label>
@@ -155,7 +172,11 @@ const EstimateRequestPage = () => {
                     value={formData.dateMonth}
                     onChange={handleInputChange}
                   >
-                    <option value="1">1</option>
+                    {[...Array(12)].map((_, index) => (
+                      <option key={index + 1} value={index + 1}>
+                        {index + 1}
+                      </option>
+                    ))}
                   </select>
                   월
                 </label>
@@ -165,7 +186,11 @@ const EstimateRequestPage = () => {
                     value={formData.dateDay}
                     onChange={handleInputChange}
                   >
-                    <option value="1">1</option>
+                    {[...Array(31)].map((_, index) => (
+                      <option key={index + 1} value={index + 1}>
+                        {index + 1}
+                      </option>
+                    ))}
                   </select>
                   일
                 </label>

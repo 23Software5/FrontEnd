@@ -18,6 +18,7 @@
   margin: 15px;
   padding: 15px;
   width: 600px;
+  height: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -30,9 +31,14 @@
   font-size: 18px;
   font-weight: bold;
 }
-
-.funeral-location {
+.funeral-method{
   margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.funeral-location {
+  margin-top: 15px;
   font-size: 14px;
   color: #555;
 }
