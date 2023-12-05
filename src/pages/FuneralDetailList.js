@@ -23,6 +23,11 @@ const FuneralDetailList = ({ funeralHome, onSelectFuneralHome }) => {
         <div className="funeral-detail-intro">
           소개 : {funeralHome.description}
         </div>
+        <div className="funeral-detail-price">
+          {funeralHome.price.split("\n").map((line, index) => (
+            <div key={index}>{line}</div>
+          ))}
+        </div>
         <div className="funeral-detail-button-container">
           <Link to="/estimate-request">
             <button

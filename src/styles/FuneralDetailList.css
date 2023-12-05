@@ -6,11 +6,13 @@
 }
 
 .funeral-detail-container-left {
+  position: relative; 
   padding: 20px;
   border: 1px solid #ccc;
   margin: 10px;
-  width: 40%;
-  height: 50%;
+  width: 50%;
+  
+  height: 70%;
   text-align: center;
 }
 
@@ -21,12 +23,19 @@
 }
 
 .funeral-detail-name {
-  font-size: 26px;
+  font-size: 30px;
   font-weight: bold;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
   margin-top: 15px;
 }
-
+.funeral-detail-price{
+  margin-bottom: 50px;
+  margin-top: 15px;
+  line-height: 2.5;
+}
+.funeral-detail-intro{
+margin-bottom: 50px;
+}
 .funeral-detail-location {
   margin-bottom: 50px;
 }
@@ -36,19 +45,20 @@ margin-bottom: 50px;
 .funeral-detail-telnumber{
   margin-bottom: 50px;
 }
-.funeral-detail-intro{
 
-}
 .review-title {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .funeral-detail-button-container {
-  margin-top: 100px;
+  position: absolute;
   text-align: center;
   border: none;
+  left: 50%; 
+  bottom: 20px; 
+  transform: translateX(-50%); 
 }
 .funeral-detail-button {
   background-color: #a3ada1;
