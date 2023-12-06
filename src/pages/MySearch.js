@@ -292,7 +292,7 @@ const MySearch = () => {
             </label>
           </div>
           <button onClick={submitReview}>작성 완료</button>
-          <button onClick={closeReviewModal}>닫기</button>
+          <button className="mysearchreviewclose" onClick={closeReviewModal}>닫기</button>
         </div>
       )}
     </div>
